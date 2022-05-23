@@ -19,14 +19,14 @@ public class RepuestoController {
     public String listarDiscos(Model model) {
         List<Repuesto> todosLosRepuestos = repuestoService.BuscarTodos();
         model.addAttribute("repuestos", todosLosRepuestos);
-        return "listado";
+        return "listado.html";
     }
 
     @RequestMapping("/buscar")
     public String buscar(@RequestParam("q") String consulta, Model model) {
         List<Repuesto> listaRepuestosPorParametro = repuestoService.BuscarPorParametro(consulta);
         model.addAttribute("repuestos", listaRepuestosPorParametro);
-        return "listado";
+        return "listado.html";
     }
 
 }

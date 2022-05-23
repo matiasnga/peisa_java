@@ -1,9 +1,11 @@
-drop table if exists repuesto
+/* Showing results for Lista Precio.xlsx */
+DROP TABLE IF EXISTS repuesto
 
+/* CREATE TABLE */
 CREATE TABLE repuesto(
 id INT,
 codigo INT,
-descripcion VARCHAR(200),
+descripcion VARCHAR(100),
 cantidad INT,
 precio_de_venta DOUBLE,
 precio_unitario DOUBLE,
@@ -63,14 +65,14 @@ VALUES
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-8, 90000644, '"ANODO MAG P/ TQ ACUM 32X400 1""1/4 PEISA "', 1, 112.2, 112.2, 0
+8, 90000644, 'ANODO MAG P/ TQ ACUM 32X400 1""1/4 PEISA ', 1, 112.20, 112.20, 0
 );
 
 /* INSERT QUERY NO: 9 */
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-9, 90000645, '"ANODO MAG P/ TQ ACUM 32X700 1""1/4 PEISA "', 1, 134.2, 134.2, 0
+9, 90000645, 'ANODO MAG P/ TQ ACUM 32X700 1""1/4 PEISA ', 1, 134.20, 134.20, 0
 );
 
 /* INSERT QUERY NO: 10 */
@@ -112,7 +114,7 @@ VALUES
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-15, 90000408, 'BOMBA CIRCUL GRUNDFOS UPS 32-80 N MOCAS ', 1, 924, 924, 0
+15, 90000408, 'BOMBA CIRCUL GRUNDFOS UPS 32-80 N MOCAS ', 1, 924.00, 924.00, 0
 );
 
 /* INSERT QUERY NO: 16 */
@@ -126,14 +128,14 @@ VALUES
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-17, 90000049, 'BOMBA CIRCUL. GRUNDFOS CACAO P15-60 ', 1, 148.5, 148.5, 0
+17, 90000049, 'BOMBA CIRCUL. GRUNDFOS CACAO P15-60 ', 1, 148.50, 148.50, 0
 );
 
 /* INSERT QUERY NO: 18 */
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-18, 90000051, 'BOMBA CIRCUL. GRUNDFOS UPS 25-80 ', 1, 475.2, 475.2, 0
+18, 90000051, 'BOMBA CIRCUL. GRUNDFOS UPS 25-80 ', 1, 475.20, 475.20, 0
 );
 
 /* INSERT QUERY NO: 19 */
@@ -175,7 +177,7 @@ VALUES
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-24, 90000277, 'BOMBA VELOC. VARIABLE DIVA CONDENS. 24KW ', 1, 764.3, 764.3, 0
+24, 90000277, 'BOMBA VELOC. VARIABLE DIVA CONDENS. 24KW ', 1, 764.30, 764.30, 0
 );
 
 /* INSERT QUERY NO: 25 */
@@ -203,14 +205,14 @@ VALUES
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-28, 90000336, 'BURLETE DE GOMA AUTOADHESIVO 500x10x3 ', 4, 8.38, 2.1, 0
+28, 90000336, 'BURLETE DE GOMA AUTOADHESIVO 500x10x3 ', 4, 8.38, 2.10, 0
 );
 
 /* INSERT QUERY NO: 29 */
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-29, 90000314, 'CABEZ ENTR-SALIDA AGUA T40/80 PLAST (MEC ', 1, 75.2, 75.2, 0
+29, 90000314, 'CABEZ ENTR-SALIDA AGUA T40/80 PLAST (MEC ', 1, 75.20, 75.20, 0
 );
 
 /* INSERT QUERY NO: 30 */
@@ -259,7 +261,7 @@ VALUES
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-36, 90000455, 'CABLEADO T80 ', 1, 56.8, 56.8, 0
+36, 90000455, 'CABLEADO T80 ', 1, 56.80, 56.80, 0
 );
 
 /* INSERT QUERY NO: 37 */
@@ -280,70 +282,70 @@ VALUES
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-39, 90000478, 'CAÑO CORRUGADO INOX 1/2 L=525 mm ', 1, 15.98, 15.98, 0
+39, 90000478, 'CAÑO CORRUGADO INOX 1/2 L=525 mm ', 1, 15.98, 15.98, 0
 );
 
 /* INSERT QUERY NO: 40 */
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-40, 90000485, 'CAÑO CORRUGADO INOX 1/2 L=640 mm ', 1, 23.98, 23.98, 0
+40, 90000485, 'CAÑO CORRUGADO INOX 1/2 L=640 mm ', 1, 23.98, 23.98, 0
 );
 
 /* INSERT QUERY NO: 41 */
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-41, 90000490, 'CAÑO CORRUGADO INOX 3/4 L=275 mm ', 1, 21.69, 21.69, 0
+41, 90000490, 'CAÑO CORRUGADO INOX 3/4 L=275 mm ', 1, 21.69, 21.69, 0
 );
 
 /* INSERT QUERY NO: 42 */
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-42, 90000482, 'CAÑO CORRUGADO INOX 3/4 L=340 mm ', 1, 22.51, 22.51, 0
+42, 90000482, 'CAÑO CORRUGADO INOX 3/4 L=340 mm ', 1, 22.51, 22.51, 0
 );
 
 /* INSERT QUERY NO: 43 */
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-43, 90000496, 'CAÑO CORRUGADO INOX 3/4 L=660 mm ', 1, 23.98, 23.98, 0
+43, 90000496, 'CAÑO CORRUGADO INOX 3/4 L=660 mm ', 1, 23.98, 23.98, 0
 );
 
 /* INSERT QUERY NO: 44 */
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-44, 90000487, 'CAÑO CORRUGADO INOX 3/4 L=755 mm ', 1, 24.93, 24.93, 0
+44, 90000487, 'CAÑO CORRUGADO INOX 3/4 L=755 mm ', 1, 24.93, 24.93, 0
 );
 
 /* INSERT QUERY NO: 45 */
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-45, 90000635, 'CAÑO FLEXIBLE VASO EXPANSIÓN - (DIVA Tecno) ', 1, 10.4, 10.4, 0
+45, 90000635, 'CAÑO FLEXIBLE VASO EXPANSIÓN - (DIVA Tecno) ', 1, 10.40, 10.40, 0
 );
 
 /* INSERT QUERY NO: 46 */
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-46, 90000120, 'CAÑO MANDADA TX40 TRV ', 1, 118.34, 118.34, 0
+46, 90000120, 'CAÑO MANDADA TX40 TRV ', 1, 118.34, 118.34, 0
 );
 
 /* INSERT QUERY NO: 47 */
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-47, 90000393, 'CAÑO RETORNO TX40 C/ CAÑO PRES. ANT. ', 1, 159.5, 159.5, 0
+47, 90000393, 'CAÑO RETORNO TX40 C/ CAÑO PRES. ANT. ', 1, 159.50, 159.50, 0
 );
 
 /* INSERT QUERY NO: 48 */
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-48, 90000119, 'CAÑO RETORNO TX40 TRV ', 1, 130.25, 130.25, 0
+48, 90000119, 'CAÑO RETORNO TX40 TRV ', 1, 130.25, 130.25, 0
 );
 
 /* INSERT QUERY NO: 49 */
@@ -364,7 +366,7 @@ VALUES
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-51, 90000620, 'CAUDALÍMETRO 3/4 M-M UTI ', 1, 519.75, 519.75, 0
+51, 90000620, 'CAUDALÍMETRO 3/4 M-M UTI ', 1, 519.75, 519.75, 0
 );
 
 /* INSERT QUERY NO: 52 */
@@ -441,7 +443,7 @@ VALUES
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-62, 90000624, 'CONJ. CAÑO CONEX. BY PASS UTI ', 1, 41.58, 41.58, 0
+62, 90000624, 'CONJ. CAÑO CONEX. BY PASS UTI ', 1, 41.58, 41.58, 0
 );
 
 /* INSERT QUERY NO: 63 */
@@ -462,7 +464,7 @@ VALUES
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-65, 90000315, 'CONJ. CAÑO MANDADA TX 70', 1, 218.1, 218.1, 0
+65, 90000315, 'CONJ. CAÑO MANDADA TX 70', 1, 218.10, 218.10, 0
 );
 
 /* INSERT QUERY NO: 66 */
@@ -497,7 +499,7 @@ VALUES
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-70, 90000227, 'CONJ. CLIPS D18 INTERCAMBIADOR DIVA', 1, 8.2, 8.2, 0
+70, 90000227, 'CONJ. CLIPS D18 INTERCAMBIADOR DIVA', 1, 8.20, 8.20, 0
 );
 
 /* INSERT QUERY NO: 71 */
@@ -525,7 +527,7 @@ VALUES
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-74, 90000527, 'CONJ. FRENTE Y LATER. DIVA 24/32 (COMPL)', 1, 123.9, 123.9, 0
+74, 90000527, 'CONJ. FRENTE Y LATER. DIVA 24/32 (COMPL)', 1, 123.90, 123.90, 0
 );
 
 /* INSERT QUERY NO: 75 */
@@ -777,7 +779,7 @@ VALUES
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-110, 90000198, 'FRENTE PLASTICO TX40', 1, 100.1, 100.1, 0
+110, 90000198, 'FRENTE PLASTICO TX40', 1, 100.10, 100.10, 0
 );
 
 /* INSERT QUERY NO: 111 */
@@ -840,7 +842,7 @@ VALUES
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-119, 90000213, 'GUARNICION P/CODO COAXIAL DIVA - PK X 2', 2, 8.59, 4.3, 0
+119, 90000213, 'GUARNICION P/CODO COAXIAL DIVA - PK X 2', 2, 8.59, 4.30, 0
 );
 
 /* INSERT QUERY NO: 120 */
@@ -903,7 +905,7 @@ VALUES
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-128, 90000369, 'INTERCAMB DIVA 32 MONOTERMICO (conexión rápida)', 1, 223.3, 223.3, 0
+128, 90000369, 'INTERCAMB DIVA 32 MONOTERMICO (conexión rápida)', 1, 223.30, 223.30, 0
 );
 
 /* INSERT QUERY NO: 129 */
@@ -917,7 +919,7 @@ VALUES
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-130, 90000303, 'INTERCAMB MONOTERM 30000 Kcal 107al.QL', 1, 324.8, 324.8, 0
+130, 90000303, 'INTERCAMB MONOTERM 30000 Kcal 107al.QL', 1, 324.80, 324.80, 0
 );
 
 /* INSERT QUERY NO: 131 */
@@ -931,7 +933,7 @@ VALUES
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-132, 90000262, 'INTERCAMB. DIVA CONDENS. 24 KW PRIMARIO', 1, 0, 0, 0
+132, 90000262, 'INTERCAMB. DIVA CONDENS. 24 KW PRIMARIO', 1, 1477.16, 1477.16, 0
 );
 
 /* INSERT QUERY NO: 133 */
@@ -945,42 +947,42 @@ VALUES
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-134, 90000261, 'INTERCAMB. DIVA CONDENS. 35 KW PRIMARIO', 1, 0, 0, 0
+134, 90000261, 'INTERCAMB. DIVA CONDENS. 35 KW PRIMARIO', 1, 1830.66, 1830.66, 0
 );
 
 /* INSERT QUERY NO: 135 */
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-135, 90000057, '"INTERCAMB. DIVA DUO BITERM. QL (1/2', 0, 0, 1, 418.44
+135, 90000057, 'INTERCAMB. DIVA DUO BITERM. QL (1/2)', 1, 418.44, 418.44, 1
 );
 
 /* INSERT QUERY NO: 136 */
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-136, 90000056, '"INTERCAMB. DIVA DUO MINI BITERM. QL (1/2', 0, 0, 1, 358.61
+136, 90000056, 'INTERCAMB. DIVA DUO MINI BITERM. QL (1/2)', 1, 358.61, 358.61, 1
 );
 
 /* INSERT QUERY NO: 137 */
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-137, 90000058, '"INTERCAMB. DIVA DUO MINI BITERM. VX (1/2', 0, 0, 1, 484.41
+137, 90000058, 'INTERCAMB. DIVA DUO MINI BITERM. VX (1/2)', 1, 484.41, 484.41, 0
 );
 
 /* INSERT QUERY NO: 138 */
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-138, 90000059, 'INTERCAMB. DIVA UNICA MINI MONOTERM.', 1, 273, 273, 0
+138, 90000059, 'INTERCAMB. DIVA UNICA MINI MONOTERM.', 1, 273.00, 273.00, 0
 );
 
 /* INSERT QUERY NO: 139 */
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-139, 90000060, 'INTERCAMB. TX40 MONOTERM. TRV', 1, 511.3, 511.3, 0
+139, 90000060, 'INTERCAMB. TX40 MONOTERM. TRV', 1, 511.30, 511.30, 0
 );
 
 /* INSERT QUERY NO: 140 */
@@ -1015,21 +1017,21 @@ VALUES
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-144, 90000116, 'INTERCAMBIADOR T80 (SIN CABEZAL PLÁSTICO)', 1, 0, 0, 0
+144, 90000116, 'INTERCAMBIADOR T80 (SIN CABEZAL PLÁSTICO)', 1, 1325.49, 1325.49, 0
 );
 
 /* INSERT QUERY NO: 145 */
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-145, 90000432, 'INTERCAMBIADOR T80 C/ CABEZAL', 1, 0, 0, 0
+145, 90000432, 'INTERCAMBIADOR T80 C/ CABEZAL', 1, 1582.04, 1582.04, 0
 );
 
 /* INSERT QUERY NO: 146 */
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-146, 90000138, 'INTERCAMBIADOR TX 40 - SPG', 1, 563.2, 563.2, 0
+146, 90000138, 'INTERCAMBIADOR TX 40 - SPG', 1, 563.20, 563.20, 0
 );
 
 /* INSERT QUERY NO: 147 */
@@ -1043,14 +1045,14 @@ VALUES
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-148, 90000537, 'INTERRUPTOR BIPOLAR PIETRA', 1, 8.7, 8.7, 0
+148, 90000537, 'INTERRUPTOR BIPOLAR PIETRA', 1, 8.70, 8.70, 0
 );
 
 /* INSERT QUERY NO: 149 */
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-149, 90000320, 'INTERRUPTOR ROTATIVO C/PULSADOR', 1, 6.5, 6.5, 0
+149, 90000320, 'INTERRUPTOR ROTATIVO C/PULSADOR', 1, 6.50, 6.50, 0
 );
 
 /* INSERT QUERY NO: 150 */
@@ -1085,14 +1087,14 @@ VALUES
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-154, 90000215, 'JUNTA 1 1/2 - PK X 20', 20, 38.1, 1.91, 0
+154, 90000215, 'JUNTA 1 1/2 - PK X 20', 20, 38.10, 1.91, 0
 );
 
 /* INSERT QUERY NO: 155 */
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-155, 90000212, 'JUNTA 1 1/2 GOMA - PK X 20', 20, 242, 12.1, 0
+155, 90000212, 'JUNTA 1 1/2 GOMA - PK X 20', 20, 242.00, 12.10, 0
 );
 
 /* INSERT QUERY NO: 156 */
@@ -1190,7 +1192,7 @@ VALUES
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-169, 90000566, 'KIT GUARNICIONES P/ RADIADOR x 100', 100, 23.3, 0.23, 0
+169, 90000566, 'KIT GUARNICIONES P/ RADIADOR x 100', 100, 23.30, 0.23, 0
 );
 
 /* INSERT QUERY NO: 170 */
@@ -1204,7 +1206,7 @@ VALUES
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-171, 90000567, 'KIT GUARNICIONES P/ RADIADOR x 600', 600, 122.34, 0.2, 0
+171, 90000567, 'KIT GUARNICIONES P/ RADIADOR x 600', 600, 122.34, 0.20, 0
 );
 
 /* INSERT QUERY NO: 172 */
@@ -1246,7 +1248,7 @@ VALUES
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-177, 90000569, 'KIT NIPLES P/ RADIADOR x 100', 100, 115.5, 1.16, 0
+177, 90000569, 'KIT NIPLES P/ RADIADOR x 100', 100, 115.50, 1.16, 0
 );
 
 /* INSERT QUERY NO: 178 */
@@ -1267,7 +1269,7 @@ VALUES
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-180, 90000638, 'KIT O\ RING GHK - PK X 5', 5, 2.7, 0.54, 0
+180, 90000638, 'KIT O RING GHK - PK X 5', 5, 2.70, 0.54, 0
 );
 
 /* INSERT QUERY NO: 181 */
@@ -1281,7 +1283,7 @@ VALUES
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-182, 90000483, 'KIT SILENCIADOR DIVA CONDENSACIÓN', 1, 157.7, 157.7, 0
+182, 90000483, 'KIT SILENCIADOR DIVA CONDENSACIÓN', 1, 157.70, 157.70, 0
 );
 
 /* INSERT QUERY NO: 183 */
@@ -1330,14 +1332,14 @@ VALUES
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-189, 90000513, 'MARCO PANEL INSTRUMENTOS CALEFON DIVA 11', 1, 6.6, 6.6, 0
+189, 90000513, 'MARCO PANEL INSTRUMENTOS CALEFON DIVA 11', 1, 6.60, 6.60, 0
 );
 
 /* INSERT QUERY NO: 190 */
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-190, 90000511, 'MARCO PANEL INSTRUMENTOS DIVA 11', 1, 6.6, 6.6, 0
+190, 90000511, 'MARCO PANEL INSTRUMENTOS DIVA 11', 1, 6.60, 6.60, 0
 );
 
 /* INSERT QUERY NO: 191 */
@@ -1386,63 +1388,63 @@ VALUES
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-197, 90000385, 'O\ RING 2-006 ø2.90-6.46 PK X 10', 10, 1.44, 0.14, 0
+197, 90000385, 'O RING 2-006 ø2.90-6.46 PK X 10', 10, 1.44, 0.14, 0
 );
 
 /* INSERT QUERY NO: 198 */
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-198, 90000068, 'O\ RING 2-113 D13.94-19.18 S2.62- PK x 10', 10, 4.26, 0.43, 0
+198, 90000068, 'O RING 2-113 D13.94-19.18 S2.62- PK x 10', 10, 4.26, 0.43, 0
 );
 
 /* INSERT QUERY NO: 199 */
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-199, 90000218, 'O\ RING 2-113 DIVA 24/32 ACS- PK X 10', 10, 8.48, 0.85, 0
+199, 90000218, 'O RING 2-113 DIVA 24/32 ACS- PK X 10', 10, 8.48, 0.85, 0
 );
 
 /* INSERT QUERY NO: 200 */
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-200, 90000211, 'O\ RING 2-115 ø17.12-22.36 S2.62- PK X 10', 10, 4.73, 0.47, 0
+200, 90000211, 'O RING 2-115 ø17.12-22.36 S2.62- PK X 10', 10, 4.73, 0.47, 0
 );
 
 /* INSERT QUERY NO: 201 */
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-201, 90000238, 'O\ RING 2-210 18.64-25.70 S3.53- PK X 10', 10, 5.64, 0.56, 0
+201, 90000238, 'O RING 2-210 18.64-25.70 S3.53- PK X 10', 10, 5.64, 0.56, 0
 );
 
 /* INSERT QUERY NO: 202 */
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-202, 90000324, 'O\ RING 2-275 EPDM P/ CABEZAL T40/80', 1, 25.1, 25.1, 0
+202, 90000324, 'O RING 2-275 EPDM P/ CABEZAL T40/80', 1, 25.10, 25.10, 0
 );
 
 /* INSERT QUERY NO: 203 */
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-203, 90000069, 'O\ RING A LABBRO D60 SILICONA - PK x 10', 10, 50.94, 5.09, 0
+203, 90000069, 'O RING A LABBRO D60 SILICONA - PK x 10', 10, 50.94, 5.09, 0
 );
 
 /* INSERT QUERY NO: 204 */
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-204, 90000305, 'O\ RING A LABBRO ø100 SILICONA', 1, 13.48, 13.48, 0
+204, 90000305, 'O RING A LABBRO ø100 SILICONA', 1, 13.48, 13.48, 0
 );
 
 /* INSERT QUERY NO: 205 */
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-205, 90000219, 'O\ RING DIVA 24/32 CALE- PK X 10', 10, 11.5, 1.15, 0
+205, 90000219, 'O RING DIVA 24/32 CALE- PK X 10', 10, 11.50, 1.15, 0
 );
 
 /* INSERT QUERY NO: 206 */
@@ -1470,14 +1472,14 @@ VALUES
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-209, 90000629, '"PASACABLE ø18', 0, 0, 4, 3.04
+209, 90000629, 'PASACABLE ø18,5 X ø 3,5 - PK X 4', 4, 3.04, 0.76, 0
 );
 
 /* INSERT QUERY NO: 210 */
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-210, 90000628, '"PASACABLE ø18', 0, 4, 3.04, 0.76
+210, 90000628, 'PASACABLE ø18,5 X ø 6 - PK X 4', 4, 3.04, 0.76, 0
 );
 
 /* INSERT QUERY NO: 211 */
@@ -1561,7 +1563,7 @@ VALUES
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-222, 90000668, 'PICO INY. Ø2.6 GN C/ ARANDELA - PK X 5', 5, 16.5, 3.3, 0
+222, 90000668, 'PICO INY. Ø2.6 GN C/ ARANDELA - PK X 5', 5, 16.50, 3.30, 0
 );
 
 /* INSERT QUERY NO: 223 */
@@ -1575,7 +1577,7 @@ VALUES
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-224, 90000222, 'PICO INYECTOR 1.60 GL DONNA/XP- PK X 10', 10, 44, 4.4, 0
+224, 90000222, 'PICO INYECTOR 1.60 GL DONNA/XP- PK X 10', 10, 44.00, 4.40, 0
 );
 
 /* INSERT QUERY NO: 225 */
@@ -1624,21 +1626,21 @@ VALUES
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-231, 90000641, 'PILOTO COMPLETO T80', 1, 54, 54, 0
+231, 90000641, 'PILOTO COMPLETO T80', 1, 54.00, 54.00, 0
 );
 
 /* INSERT QUERY NO: 232 */
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-232, 90000642, 'PILOTO COMPLETO TX40/70', 1, 45.1, 45.1, 0
+232, 90000642, 'PILOTO COMPLETO TX40/70', 1, 45.10, 45.10, 0
 );
 
 /* INSERT QUERY NO: 233 */
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-233, 90000223, 'PILOTO DONNA / XP', 1, 27.3, 27.3, 0
+233, 90000223, 'PILOTO DONNA / XP', 1, 27.30, 27.30, 0
 );
 
 /* INSERT QUERY NO: 234 */
@@ -1680,7 +1682,7 @@ VALUES
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-239, 90000377, 'PLACA AISLANTE (TRAS.) 24 TN -10- PK X 2', 2, 27.7, 13.85, 0
+239, 90000377, 'PLACA AISLANTE (TRAS.) 24 TN -10- PK X 2', 2, 27.70, 13.85, 0
 );
 
 /* INSERT QUERY NO: 240 */
@@ -1708,7 +1710,7 @@ VALUES
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-243, 90000388, 'PLACA AISLANTE 10x382x170 - TX70 PK X 2', 2, 89.1, 44.55, 0
+243, 90000388, 'PLACA AISLANTE 10x382x170 - TX70 PK X 2', 2, 89.10, 44.55, 0
 );
 
 /* INSERT QUERY NO: 244 */
@@ -1729,7 +1731,7 @@ VALUES
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-246, 90000451, 'PLACA AISLANTE 20x522x362 T80 DEL.', 2, 117.8, 58.9, 0
+246, 90000451, 'PLACA AISLANTE 20x522x362 T80 DEL.', 2, 117.80, 58.90, 0
 );
 
 /* INSERT QUERY NO: 247 */
@@ -1792,7 +1794,7 @@ VALUES
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-255, 90000338, 'PLAQUETA DE ENCENDIDO ABC - 60 s.', 1, 260.7, 260.7, 0
+255, 90000338, 'PLAQUETA DE ENCENDIDO ABC - 60 s.', 1, 260.70, 260.70, 0
 );
 
 /* INSERT QUERY NO: 256 */
@@ -1876,7 +1878,7 @@ VALUES
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-267, 90000426, 'PLAQUETA UTI', 1, 0, 0, 0
+267, 90000426, 'PLAQUETA UTI', 1, 1197.53, 1197.53, 0
 );
 
 /* INSERT QUERY NO: 268 */
@@ -1890,7 +1892,7 @@ VALUES
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-269, 90000202, 'PRESOSTATO DE AGUA CLIMATIZADOR PISCINA', 1, 81.4, 81.4, 0
+269, 90000202, 'PRESOSTATO DE AGUA CLIMATIZADOR PISCINA', 1, 81.40, 81.40, 0
 );
 
 /* INSERT QUERY NO: 270 */
@@ -1904,7 +1906,7 @@ VALUES
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-271, 90000076, 'PRESOSTATO DE AGUA G1/8 2T DIVA', 1, 22.5, 22.5, 0
+271, 90000076, 'PRESOSTATO DE AGUA G1/8 2T DIVA', 1, 22.50, 22.50, 0
 );
 
 /* INSERT QUERY NO: 272 */
@@ -1953,7 +1955,7 @@ VALUES
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-278, 90000449, 'PRESOSTATO TONKA C/ CONJ. CABLES ADAPT.', 1, 56.4, 56.4, 0
+278, 90000449, 'PRESOSTATO TONKA C/ CONJ. CABLES ADAPT.', 1, 56.40, 56.40, 0
 );
 
 /* INSERT QUERY NO: 279 */
@@ -1974,35 +1976,35 @@ VALUES
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-281, 90000308, 'QUEM 20000 Kcal/h 12 r.- 1.25', 1, 115, 115, 0
+281, 90000308, 'QUEM 20000 Kcal/h 12 r.- 1.25', 1, 115.00, 115.00, 0
 );
 
 /* INSERT QUERY NO: 282 */
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-282, 90000392, 'QUEM 20000 Kcal/h 12 r.- 1.30', 1, 123.2, 123.2, 0
+282, 90000392, 'QUEM 20000 Kcal/h 12 r.- 1.30', 1, 123.20, 123.20, 0
 );
 
 /* INSERT QUERY NO: 283 */
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-283, 90000397, 'QUEM 20000 Kcal/h 12 r.-0.80', 1, 95.9, 95.9, 0
+283, 90000397, 'QUEM 20000 Kcal/h 12 r.-0.80', 1, 95.90, 95.90, 0
 );
 
 /* INSERT QUERY NO: 284 */
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-284, 90000309, 'QUEM 30000 Kcal/h 15 r.- 1.20', 1, 162.8, 162.8, 0
+284, 90000309, 'QUEM 30000 Kcal/h 15 r.- 1.20', 1, 162.80, 162.80, 0
 );
 
 /* INSERT QUERY NO: 285 */
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-285, 90000383, 'QUEM 30000 Kcal/h 15 r.- 1.30', 1, 163.9, 163.9, 0
+285, 90000383, 'QUEM 30000 Kcal/h 15 r.- 1.30', 1, 163.90, 163.90, 0
 );
 
 /* INSERT QUERY NO: 286 */
@@ -2030,7 +2032,7 @@ VALUES
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-289, 90000370, 'QUEMADOR 13 RAMPAS - Ø1.35', 1, 132, 132, 0
+289, 90000370, 'QUEMADOR 13 RAMPAS - Ø1.35', 1, 132.00, 132.00, 0
 );
 
 /* INSERT QUERY NO: 290 */
@@ -2065,7 +2067,7 @@ VALUES
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-294, 90000243, 'RESISTENCIA ELECT. 24 KW CALDERA ELECTR', 1, 687.4, 687.4, 0
+294, 90000243, 'RESISTENCIA ELECT. 24 KW CALDERA ELECTR', 1, 687.40, 687.40, 0
 );
 
 /* INSERT QUERY NO: 295 */
@@ -2086,7 +2088,7 @@ VALUES
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-297, 90000415, 'RESISTENCIA ELECT. L500 1000 W', 1, 180.7, 180.7, 0
+297, 90000415, 'RESISTENCIA ELECT. L500 1000 W', 1, 180.70, 180.70, 0
 );
 
 /* INSERT QUERY NO: 298 */
@@ -2254,14 +2256,14 @@ VALUES
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-321, 90000079, 'SENSOR TEMPERAT. DE CONTACTO D14', 1, 16.7, 16.7, 0
+321, 90000079, 'SENSOR TEMPERAT. DE CONTACTO D14', 1, 16.70, 16.70, 0
 );
 
 /* INSERT QUERY NO: 322 */
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-322, 90000080, 'SENSOR TEMPERAT. DE CONTACTO D18', 1, 16.7, 16.7, 0
+322, 90000080, 'SENSOR TEMPERAT. DE CONTACTO D18', 1, 16.70, 16.70, 0
 );
 
 /* INSERT QUERY NO: 323 */
@@ -2289,7 +2291,7 @@ VALUES
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-326, 90000514, 'SERIGRAFÍA DIVA DS', 1, 49.3, 49.3, 0
+326, 90000514, 'SERIGRAFÍA DIVA DS', 1, 49.30, 49.30, 0
 );
 
 /* INSERT QUERY NO: 327 */
@@ -2317,7 +2319,7 @@ VALUES
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-330, 90000284, 'SIFON DESCARGA DIVA CONDENSACION', 1, 50, 50, 0
+330, 90000284, 'SIFON DESCARGA DIVA CONDENSACION', 1, 50.00, 50.00, 0
 );
 
 /* INSERT QUERY NO: 331 */
@@ -2380,21 +2382,21 @@ VALUES
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-339, 90000486, 'TANQUE 130L CON AISLACIÓN + SERP TTQUA', 1, 925.1, 925.1, 0
+339, 90000486, 'TANQUE 130L CON AISLACIÓN  SERP TTQUA', 1, 925.10, 925.10, 0
 );
 
 /* INSERT QUERY NO: 340 */
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-340, 90000350, 'TANQUE C/AISLACION & JUNTAS - TAB', 1, 0, 0, 0
+340, 90000350, 'TANQUE C/AISLACION & JUNTAS - TAB', 1, 1217.30, 1217.30, 0
 );
 
 /* INSERT QUERY NO: 341 */
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-341, 90000326, 'TAPA 3/4 BSP LATON', 1, 12.4, 12.4, 0
+341, 90000326, 'TAPA 3/4 BSP LATON', 1, 12.40, 12.40, 0
 );
 
 /* INSERT QUERY NO: 342 */
@@ -2408,14 +2410,14 @@ VALUES
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-343, 90000571, 'TAPON CIEGO 1/2 P/ RADIADOR C/ O\ RING', 1, 2.83, 2.83, 0
+343, 90000571, 'TAPON CIEGO 1/2 P/ RADIADOR C/ O RING', 1, 2.83, 2.83, 0
 );
 
 /* INSERT QUERY NO: 344 */
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-344, 90000591, 'TAPON COLECTOR SOLAR PISCINA RTG-PK X 2', 2, 46.61, 23.3, 0
+344, 90000591, 'TAPON COLECTOR SOLAR PISCINA RTG-PK X 2', 2, 46.61, 23.30, 0
 );
 
 /* INSERT QUERY NO: 345 */
@@ -2513,7 +2515,7 @@ VALUES
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-358, 90000199, 'TERMOPILA CLIMATIZADOR PISCINA', 1, 87.9, 87.9, 0
+358, 90000199, 'TERMOPILA CLIMATIZADOR PISCINA', 1, 87.90, 87.90, 0
 );
 
 /* INSERT QUERY NO: 359 */
@@ -2590,7 +2592,7 @@ VALUES
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-369, 90000433, 'TERMOSTATO LIMITE T40/80 C/ O\ RING', 1, 56.28, 56.28, 0
+369, 90000433, 'TERMOSTATO LIMITE T40/80 C/ O RING', 1, 56.28, 56.28, 0
 );
 
 /* INSERT QUERY NO: 370 */
@@ -2667,7 +2669,7 @@ VALUES
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-380, 90000534, 'TERMOSTATO SEGURIDAD PIETRA', 1, 9.7, 9.7, 0
+380, 90000534, 'TERMOSTATO SEGURIDAD PIETRA', 1, 9.70, 9.70, 0
 );
 
 /* INSERT QUERY NO: 381 */
@@ -2786,7 +2788,7 @@ VALUES
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-397, 90000676, 'VALV 3 VÍAS MUT MANUAL DN20', 1, 189.2, 189.2, 0
+397, 90000676, 'VALV 3 VÍAS MUT MANUAL DN20', 1, 189.20, 189.20, 0
 );
 
 /* INSERT QUERY NO: 398 */
@@ -2835,14 +2837,14 @@ VALUES
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-404, 90000107, 'VALV. SOBREP. 1/2 M 6 bar', 1, 19, 19, 0
+404, 90000107, 'VALV. SOBREP. 1/2 M 6 bar', 1, 19.00, 19.00, 0
 );
 
 /* INSERT QUERY NO: 405 */
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-405, 90000250, 'VALV. SOBREP. 1/2 TERMOTANQUE ELECTRICO', 1, 42.5, 42.5, 0
+405, 90000250, 'VALV. SOBREP. 1/2 TERMOTANQUE ELECTRICO', 1, 42.50, 42.50, 0
 );
 
 /* INSERT QUERY NO: 406 */
@@ -2926,7 +2928,7 @@ VALUES
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-417, 90000086, 'VALVULA DE PURGA DE COLUMNA 3/8', 1, 19, 19, 0
+417, 90000086, 'VALVULA DE PURGA DE COLUMNA 3/8', 1, 19.00, 19.00, 0
 );
 
 /* INSERT QUERY NO: 418 */
@@ -3031,7 +3033,7 @@ VALUES
 INSERT INTO repuesto(id, codigo, descripcion, cantidad, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-432, 90000554, 'VENTILADOR ALKON 70/140', 1, 0, 0, 0
+432, 90000554, 'VENTILADOR ALKON 70/140', 1, 1277.01, 1277.01, 0
 );
 
 /* INSERT QUERY NO: 433 */
@@ -3061,3 +3063,4 @@ VALUES
 (
 436, 90000131, 'VISOR VIDRIO C/GUARNICION DIVA/TX', 1, 10.22, 10.22, 0
 );
+
