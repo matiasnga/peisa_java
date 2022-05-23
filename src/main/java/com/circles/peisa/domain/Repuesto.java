@@ -1,15 +1,30 @@
 package com.circles.peisa.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Repuesto {
     
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private int codigo;
     private String descripcion;
-    private double precio;
+    private int cantidad;
+    private double precioDeVenta;
+    private double precioUnitario;
+    private int destacado;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public int getCodigo() {
         return codigo;
@@ -27,17 +42,36 @@ public class Repuesto {
         this.descripcion = descripcion;
     }
 
-    public double getPrecio() {
-        return precio;
+    public int getCantidad() {
+        return cantidad;
     }
 
-    public void setPrecio(double precio) {
-        this.precio = precio;
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
     }
 
-  
-    
-    
-    
-    
+    public double getPrecioDeVenta() {
+        return precioDeVenta;
+    }
+
+    public void setPrecioDeVenta(double precioDeVenta) {
+        this.precioDeVenta = precioDeVenta;
+    }
+
+    public double getPrecioUnitario() {
+        return precioUnitario;
+    }
+
+    public void setPrecioUnitario(double precioUnitario) {
+        this.precioUnitario = precioUnitario;
+    }
+
+    public int getDestacado() {
+        return destacado;
+    }
+
+    public void setDestacado(int destacado) {
+        this.destacado = destacado;
+    }
+
 }
