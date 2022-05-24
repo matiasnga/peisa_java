@@ -10,7 +10,7 @@ public interface RepuestoRepository extends JpaRepository<Repuesto, Integer> {
     @Query("FROM Repuesto r WHERE r.descripcion LIKE %?1% OR r.codigo LIKE %?1% ORDER BY r.codigo")
     public List<Repuesto> buscarPorDescripcion(String consulta);
 
-    @Query("FROM Repuesto r WHERE r.destacado IS 1 ORDER BY r.precioDeVenta ASC")
+    @Query("FROM Repuesto r WHERE r.destacado IS 1 ORDER BY r.precio ASC")
     public List<Repuesto> buscarDestacados();
 
     public Repuesto findById(int id);

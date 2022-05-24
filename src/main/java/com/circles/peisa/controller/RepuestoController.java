@@ -16,22 +16,37 @@ public class RepuestoController {
     RepuestoService repuestoService;
 
     @RequestMapping("/")
-    public String inicio() {
-        return "index.html";
+
+    public String listarInicio(Model model) {
+
+        return "index";
     }
 
     @RequestMapping("/favoritos")
-    public String listarDestadcados(Model model) {
-        List<Repuesto> listaRepuestosDestacados = repuestoService.BuscarDestacados();
-        model.addAttribute("repuestos", listaRepuestosDestacados);
+    public String listadoFavoritos(Model model) {
+        List<Repuesto> listaFavoritos = repuestoService.BuscarDestacados();
+        model.addAttribute("repuestos", listaFavoritos);
         return "favoritos.html";
     }
 
     @RequestMapping("/buscar")
     public String buscarPorParametro(@RequestParam("q") String consulta, Model model) {
         List<Repuesto> listaRepuestosPorParametro = repuestoService.BuscarPorParametro(consulta);
+
+//        for (Repuesto r : listaRepuestosPorParametro) {
+//            double cotizacionDolar = 120;
+//            double setPrecioPesosIvaIncluido = r.getPrecio() * 1.21 * cotizacionDolar;
+//            r.setPrecio(setPrecioPesosIvaIncluido);
+//        }
         model.addAttribute("repuestos", listaRepuestosPorParametro);
-        return "listado.html";
+        return "listadoRepuestos.html";
+    }
+
+    @RequestMapping("/listaDePrecios")
+    public String listadoListaDePrecios(Model model) {
+        List<Repuesto> listaRepuestos = repuestoService.BuscarTodos();
+        model.addAttribute(listaRepuestos);
+        return "listadoRepuestos.html";
     }
 
 }

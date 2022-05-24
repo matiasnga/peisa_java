@@ -4,34 +4,31 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 @Entity
-@Table(name = "repuestos")
-
-public class Repuesto {
+public class Mo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    private int codigo;
+    
+    private Integer Id;
+    private String codigo;
     private String descripcion;
-    private double precio;
-    private boolean destacado;
+    private Double precio;
 
-    public Integer getId() {
-        return id;
+    public int getId() {
+        return Id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId(int Id) {
+        this.Id = Id;
     }
 
-    public int getCodigo() {
+    public String getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(int codigo) {
+    public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
 
@@ -43,22 +40,15 @@ public class Repuesto {
         this.descripcion = descripcion;
     }
 
-    public double getPrecio() {
-   
+    public Double getPrecio() {
         return precio;
     }
 
-    public void setPrecio(double precio) {
+    public void setPrecio(Double precio) {
         this.precio = precio;
     }
-
-    public boolean getDestacado() {
-        return destacado;
-    }
-
-    public void setDestacado(boolean destacado) {
-        this.destacado = destacado;
-    }
-
+    
+    
+    
 
 }

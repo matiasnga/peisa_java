@@ -2,7 +2,6 @@ package com.circles.peisa.controller;
 
 import com.circles.peisa.domain.Repuesto;
 import com.circles.peisa.service.RepuestoService;
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,11 +25,9 @@ public class AbmController {
 
     @RequestMapping("/guardarRepuesto")
     public String guardarRepuesto(Repuesto repuesto, Model model) {
-        double setPrecioUnitario = repuesto.getPrecioDeVenta() / repuesto.getPk();
-        repuesto.setPrecioUnitario(setPrecioUnitario);
         repuestoService.guardarRepuesto(repuesto);
         model.addAttribute("repuestos", repuesto);
-        return "favoritos";
+        return "redirect:/";
     }
 
     @GetMapping("/editar/{id}")
@@ -42,18 +39,14 @@ public class AbmController {
 
     @PostMapping("/actualizarRepuesto/{id}")
     public String guardarRepuesto(@PathVariable("id") int id, Repuesto repuesto, BindingResult result, Model model) {
-         double setPrecioUnitario = repuesto.getPrecioDeVenta() / repuesto.getPk();
-        repuesto.setPrecioUnitario(setPrecioUnitario);
         repuestoService.guardarRepuesto(repuesto);
         repuestoService.guardarRepuesto(repuesto);
-        return "redirect:/buscar?q=";
+        return "redirect:/";
     }
-    
+
     @RequestMapping("/eliminarRepuesto/{id}")
     public String eliminarRepuesto(@PathVariable int id) {
         repuestoService.eliminarRepuesto(id);
         return "redirect:/";
     }
-    
-
 }
