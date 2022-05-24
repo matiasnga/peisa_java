@@ -49,4 +49,9 @@ public class AbmController {
         repuestoService.eliminarRepuesto(id);
         return "redirect:/";
     }
+
+    @RequestMapping("/crearNuevaOrden")
+    public String crearNuevaOrden() {
+        return "formNuevaOrden";
+    }
 }

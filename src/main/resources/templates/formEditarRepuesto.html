@@ -8,7 +8,7 @@
     <body class="bg-light font-monospace">
 
 
-        <nav class="navbar navbar-dark bg-danger sticky-top">
+        <nav class="navbar navbar-dark bg-secondary sticky-top">
             <div class="container">
                 <a class="navbar-brand" th:href="@{/}">Punto de Venta</a>
             </div>
@@ -44,7 +44,7 @@
                             </label>
                         </div>
                         <div class="col-md-2">
-                            <button class="btn btn-primary" type="submit">Guardar</button>
+                            <button class="btn btn-secondary" type="submit">Guardar</button>
                         </div>
                         <div class="col-md-2">
                             <a th:href="@{'/eliminarRepuesto/{id}'(id=${repuesto.id})}" class="btn btn-danger" >Borrar</a>

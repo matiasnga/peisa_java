@@ -5,7 +5,7 @@ DROP TABLE IF EXISTS shooping_cart;
 DROP TABLE IF EXISTS orders;
 
 CREATE TABLE mo(
-id INT IDENTITY PRIMARY KEY,
+id INT PRIMARY KEY auto_increment,
 codigo VARCHAR(200),
 descripcion VARCHAR(200),
 precio INT
@@ -21,7 +21,7 @@ VALUES
 
 
 CREATE TABLE shopping_cart(
-id INT IDENTITY PRIMARY KEY,
+id INT PRIMARY KEY auto_increment,
 created_at DATE,
 items VARCHAR(200),
 price DOUBLE,
@@ -31,7 +31,7 @@ quantity INT
 
 /* CREATE TABLE */
 CREATE TABLE repuestos(
-id INT IDENTITY PRIMARY KEY,
+id INT PRIMARY KEY auto_increment,
 codigo INT,
 descripcion VARCHAR(100),
 pk INT,

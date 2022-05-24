@@ -21,7 +21,7 @@ public class RepuestoService {
     }
 
     public List<Repuesto> BuscarPorParametro(String consulta) {
-        return repuestoRepository.buscarPorDescripcion(consulta);
+        return repuestoRepository.buscarPorDescripcion(consulta.toUpperCase());
     }
 
     public Repuesto guardarRepuesto(Repuesto repuesto) {
