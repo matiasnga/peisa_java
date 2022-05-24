@@ -12,12 +12,24 @@ public class RepuestoService {
     @Autowired
     RepuestoRepository repuestoRepository;
 
-    public List<Repuesto> BuscarTodos() {
-        return repuestoRepository.findAll();
+    public List<Repuesto> BuscarDestacados() {
+        return repuestoRepository.buscarDestacados();
     }
 
     public List<Repuesto> BuscarPorParametro(String consulta) {
         return repuestoRepository.buscarPorDescripcion(consulta.toString().toUpperCase());
     }
-    
+
+    public Repuesto guardarRepuesto(Repuesto repuesto) {
+
+        return repuestoRepository.save(repuesto);
+    }
+
+    public Repuesto buscarRepuestoPorId(int id) {
+        return repuestoRepository.findById(id);
+    }
+
+    public void eliminarRepuesto(int id) {
+        repuestoRepository.deleteById(id);
+    }
 }

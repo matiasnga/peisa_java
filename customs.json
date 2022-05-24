@@ -5,10 +5,15 @@
             "context": "h1"
         },
         "th:action": {},
+        "th:switch": {},
         "th:href": {},
         "th:placeholder": {},
         "th:each": {
             "context": "tr"
-        }
+        },
+        "th:case": {
+            "context": "span"
+        },
+        "th:field": {}
     }
 }

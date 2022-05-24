@@ -13,11 +13,13 @@ public class Repuesto {
     private Integer id;
     private int codigo;
     private String descripcion;
-    private int cantidad;
+    private int pk;
     private double precioDeVenta;
     private double precioUnitario;
     private int destacado;
 
+        
+    
     public Integer getId() {
         return id;
     }
@@ -42,14 +44,15 @@ public class Repuesto {
         this.descripcion = descripcion;
     }
 
-    public int getCantidad() {
-        return cantidad;
+    public int getPk() {
+        return pk;
     }
 
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
+    public void setPk(int pk) {
+        this.pk = pk;
     }
 
+  
     public double getPrecioDeVenta() {
         return precioDeVenta;
     }
