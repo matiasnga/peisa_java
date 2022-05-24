@@ -30,7 +30,7 @@ public class AbmController {
         repuesto.setPrecioUnitario(setPrecioUnitario);
         repuestoService.guardarRepuesto(repuesto);
         model.addAttribute("repuestos", repuesto);
-        return "index";
+        return "favoritos";
     }
 
     @GetMapping("/editar/{id}")
@@ -46,7 +46,7 @@ public class AbmController {
         repuesto.setPrecioUnitario(setPrecioUnitario);
         repuestoService.guardarRepuesto(repuesto);
         repuestoService.guardarRepuesto(repuesto);
-        return "redirect:/";
+        return "redirect:/buscar?q=";
     }
     
     @RequestMapping("/eliminarRepuesto/{id}")

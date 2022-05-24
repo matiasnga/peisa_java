@@ -7,39 +7,32 @@
     </head>
     <body class="bg-light font-monospace">
         <nav class="navbar navbar-dark bg-danger sticky-top">
-            <div class="container">
+            <div class="container ">
                 <a class="navbar-brand" th:href="@{/}">Punto de Venta</a>
-             
+                <ul class="nav nav-pills">
+                    <li class="nav-item dropdown text-secondary">
+                        <a class="nav-link dropdown-toggle text-light" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Acceso Rapido</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#"></a></li>
+                            <li><a class="dropdown-item" th:href="@{/buscar?q=}">Lista de Precios</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" th:href="@{/favoritos}">Favoritos</a></li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
         </nav>
 
-        <div class="container  mt-4">
+        <div class="container  mt-4 ">
             <div class="row ">
-                <h1 class="display-6  ">Destacados</h1>
-                <table class="mt-4 table table-striped font-monospace" style="font-size: 14px;" >
-                    <thead>
-                        <tr>
-                            <th class="text-danger" scope="col">Código</th>
-                            <th class="text-danger" scope="col">Descripción</th>
-                            <th class="text-danger" scope="col">PK</th>
-                            <th class="text-danger" scope="col">Precio Unitario</th>
-                            <th class="text-danger" scope="col">Precio De Venta</th>
+                <form th:action="@{/buscar}" class="d-flex ">
+                    <input autofocus="autofocus" name="q" class="form-control form-control-sm " type="search" th:placeholder="Buscar" aria-label="Search">
+                    <a class="p-2"> </a>
+                    <button class="btn btn-danger" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <a class="p-2"> </a>
+                </form>
 
-
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr th:each="repuesto : ${repuestos}">
-                            <td th:text="${repuesto.codigo}"></td>
-                            <td th:text="${repuesto.descripcion}"></td>
-                            <td th:text="${repuesto.pk}"></td>
-                            <td th:text="'USD '+ ${repuesto.precioUnitario}"></td>
-                            <td th:text="'USD '+ ${repuesto.precioDeVenta}"></td>
-                            <td><a th:href="@{'/editar/{id}'(id=${repuesto.id})}" class="btn btn-sm" type="submit"><i class="fa-solid fa-pencil"></i></a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
             </div>
         </div>
     </body>

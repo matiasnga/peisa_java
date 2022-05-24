@@ -16,10 +16,15 @@ public class RepuestoController {
     RepuestoService repuestoService;
 
     @RequestMapping("/")
+    public String inicio() {
+        return "index.html";
+    }
+
+    @RequestMapping("/favoritos")
     public String listarDestadcados(Model model) {
         List<Repuesto> listaRepuestosDestacados = repuestoService.BuscarDestacados();
         model.addAttribute("repuestos", listaRepuestosDestacados);
-        return "index.html";
+        return "favoritos.html";
     }
 
     @RequestMapping("/buscar")

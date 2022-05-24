@@ -954,14 +954,14 @@ VALUES
 INSERT INTO repuesto(id, codigo, descripcion, pk, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-135, 90000057, 'INTERCAMB. DIVA DUO BITERM. QL (1/2)', 1, 418.44, 418.44, 1
+135, 90000057, 'INTERCAMB. DIVA DUO BITERM. QL (1/2)', 1, 418.44, 418.44, 0
 );
 
 /* INSERT QUERY NO: 136 */
 INSERT INTO repuesto(id, codigo, descripcion, pk, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-136, 90000056, 'INTERCAMB. DIVA DUO MINI BITERM. QL (1/2)', 1, 358.61, 358.61, 1
+136, 90000056, 'INTERCAMB. DIVA DUO MINI BITERM. QL (1/2)', 1, 358.61, 358.61, 0
 );
 
 /* INSERT QUERY NO: 137 */
@@ -1080,7 +1080,7 @@ VALUES
 INSERT INTO repuesto(id, codigo, descripcion, pk, precio_de_venta, precio_unitario, destacado)
 VALUES
 (
-153, 90000391, 'JUNTA 1 (30 X 20)', 20, 26.18, 1.30, 1
+153, 90000391, 'JUNTA 1 (30 X 20)', 20, 26.18, 1.30, 0
 );
 
 /* INSERT QUERY NO: 154 */
