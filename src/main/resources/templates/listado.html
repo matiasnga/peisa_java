@@ -97,7 +97,7 @@
                         <td>
                             <a th:href="@{'/repuesto/edit/{id}'(id=${repuesto.id})}" data-bs-toggle="tooltip" th:title="${repuesto.codigo}" class="" method="post" type="submit"><span th:text="${repuesto.descripcion}"></span></a>
                         </td>
-                        <td><span th:text=" '$ ' +  ${#numbers.formatDecimal(repuesto.precio, 1, 'POINT', 2, 'COMMA')}"></td>
+                        <td><span th:text=" '$&nbsp;' +  ${#numbers.formatDecimal(repuesto.precio, 1, 'POINT', 2, 'COMMA')}"></td>
 
                         <td>  
 
