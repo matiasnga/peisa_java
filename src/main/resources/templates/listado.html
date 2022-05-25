@@ -88,7 +88,6 @@
                 <table class="mt-4 table table-striped table-light">
                     <thead>
                         <tr>
-                            <th class="text-dark" scope="col">código</th>
                             <th class="text-dark" scope="col">descripción</th>
                             <th class="text-dark" scope="col">precio</th>
                             <th class="text-dark" scope="col">fav</th>
@@ -96,9 +95,8 @@
                     </thead>
                     <tr th:each="repuesto : ${repuestos}">
                         <td>
-                            <a th:href="@{'/repuesto/edit/{id}'(id=${repuesto.id})}" class="" method="post" type="submit"><span th:text="${repuesto.codigo}"></span></a>
+                            <a th:href="@{'/repuesto/edit/{id}'(id=${repuesto.id})}" data-bs-toggle="tooltip" th:title="${repuesto.codigo}" class="" method="post" type="submit"><span th:text="${repuesto.descripcion}"></span></a>
                         </td>
-                        <td th:text="${repuesto.descripcion}"></td>
                         <td><span th:text=" '$ ' +  ${#numbers.formatDecimal(repuesto.precio, 1, 'POINT', 2, 'COMMA')}"></td>
 
                         <td>  
