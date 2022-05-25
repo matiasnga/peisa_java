@@ -32,7 +32,7 @@
                 <button class="btn btn-secondary" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                 <a class="p-2"> </a>
             </form>
-            <div th:if="${ not#lists.isEmpty(mo)}">
+            <div class="table-responsive" th:if="${ not#lists.isEmpty(mo)}">
                 <table class="mt-4 table table-striped table-light "  >
                     <thead>
                         <tr>
@@ -52,7 +52,7 @@
                     </tbody>
                 </table>
             </div>
-            <div th:if="${ not#lists.isEmpty(repuestos)}">
+            <div class="table-responsive" th:if="${ not#lists.isEmpty(repuestos)}">
                 <table class="mt-4 table table-striped "  >
                     <thead>
                         <tr>
