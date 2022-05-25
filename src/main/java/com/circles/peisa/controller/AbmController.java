@@ -52,7 +52,7 @@ public class AbmController {
         repuestoService.addFavorito(repuestoAddFav);
         List<Repuesto> listaFavoritos = repuestoService.buscarDestacados();
         model.addAttribute("repuestos", listaFavoritos);
-        return "listadoHome";
+        return "redirect:/";
     }
 
     @RequestMapping("/repuesto/delete/{id}")

@@ -4,6 +4,7 @@
         "th:text": {
             "context": "h1"
         },
+        "th:if": {},
         "th:action": {},
         "th:switch": {},
         "th:href": {},

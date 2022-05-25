@@ -2,7 +2,6 @@
 DROP TABLE IF EXISTS repuestos;
 DROP TABLE IF EXISTS mo;
 DROP TABLE IF EXISTS shooping_cart;
-DROP TABLE IF EXISTS orders;
 
 CREATE TABLE mo(
 id INT PRIMARY KEY auto_increment,
