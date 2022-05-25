@@ -14,19 +14,21 @@
                         <a class="nav-link active disabled "  th:href="@{/buscar?q=}">Lista de Precios</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link  text-light " th:href="@{/crearNuevaOrden}">Nueva Orden</a>
+                        <a class="nav-link  text-light " th:href="@{/order/new}">Nueva Orden</a>
                     </li>
                 </ul>
             </div>
         </nav>
 
-        <div class="container  mt-4">
+        <div class="container mt-4">
             <form th:action="@{/buscar}" class="d-flex ">
                 <input autofocus="autofocus" name="q" class="form-control form-control-sm " type="search" th:placeholder="${param.q}"  aria-label="Search">
                 <a class="p-2"> </a>
                 <button class="btn btn-secondary" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                 <a class="p-2"> </a>
             </form>
+
+
 
             <table class="mt-4 table table-striped table-light " style="font-size: 14px;" >
                 <thead>
@@ -43,7 +45,7 @@
                         <td>
                             <span th:text="'$ ' +  ${#numbers.formatDecimal(mo.precio, 1, 'COMMA', 2, 'POINT')} "></span>
                         </td>
-                        
+
                     </tr>
                 </tbody>
             </table>
@@ -56,22 +58,34 @@
                         <th class="text-dark" scope="col">CODIGO</th>
                         <th class="text-dark" scope="col">DESCRIPCION</th>
                         <th class="text-dark" scope="col">PRECIO</th>
+                        <th class="text-dark" scope="col">FAV</th>
+                        <th class="text-dark" scope="col">EDIT</th>
+
+
                     </tr>
                 </thead>
+
                 <tr th:each="repuesto : ${repuestos}">
+
                     <td th:text="${repuesto.codigo}"></td>
                     <td th:text="${repuesto.descripcion}"></td>
-                    <td>
-                        <span th:text=" 'us$ ' +  ${#numbers.formatDecimal(repuesto.precio, 1, 'COMMA', 2, 'POINT')} "></span>&nbsp;<span>+ IVA</span>
+                    <td><span th:text=" 'us$ ' +  ${#numbers.formatDecimal(repuesto.precio, 1, 'COMMA', 2, 'POINT')}"></span>&nbsp;<span>+ IVA</span></td>
+
+
+                    <td><a th:href="@{'/repuesto/addFav/{id}'(id=${repuesto.id})}" class="btn btn-sm" ><i class="fa-solid fa-star"></i></a>
                     </td>
-                    <td><a th:href="@{'/editar/{id}'(id=${repuesto.id})}" class="btn btn-sm" type="submit"><i class="fa-solid fa-pencil"></i></a>
+
+                    <td>
+
+
+                        <a th:href="@{'/repuesto/edit/{id}'(id=${repuesto.id})}" class="btn btn-sm" method="post" type="submit"><i class="fa-solid fa-pencil"></i></a>
                     </td>
                 </tr>
             </table>
 
         </div>
     </body>
-   <div class="fixed-bottom bg-secondary text-light font-monospace  text-center " >
+    <div class="fixed-bottom bg-secondary text-light font-monospace  text-center " >
         Running on Java Version [[${@environment.getProperty('java.version')}]]
     </div>
 

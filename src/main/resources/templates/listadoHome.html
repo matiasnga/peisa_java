@@ -14,7 +14,7 @@
                         <a class="nav-link text-light "  th:href="@{/listaDePrecios}">Lista de Precios</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light " th:href="@{/crearNuevaOrden}">Nueva Orden</a>
+                        <a class="nav-link text-light " th:href="@{/order/new}">Nueva Orden</a>
                     </li>
                 </ul>
             </div>
@@ -39,7 +39,7 @@
                             <td>
                                 <span th:text=" 'us$ ' +  ${#numbers.formatDecimal(repuesto.precio, 1, 'COMMA', 2, 'POINT')} "></span>&nbsp;<span>+ IVA</span>
                             </td>
-                            <td><a th:href="@{'/editar/{id}'(id=${repuesto.id})}" class="btn btn-sm" type="submit"><i class="fa-solid fa-pencil"></i></a>
+                            <td><a th:href="@{'/repuesto/edit/{id}'(id=${repuesto.id})}" class="btn btn-sm" type="submit"><i class="fa-solid fa-pencil"></i></a>
                             </td>
                         </tr>
                     </tbody>

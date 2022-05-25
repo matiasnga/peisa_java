@@ -2,6 +2,9 @@ package com.circles.peisa.controller;
 
 import com.circles.peisa.domain.Repuesto;
 import com.circles.peisa.service.RepuestoService;
+import java.util.List;
+
+import com.circles.peisa.domain.Mo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,41 +20,51 @@ public class AbmController {
     @Autowired
     RepuestoService repuestoService;
 
-    @RequestMapping("/formularioAltaRepuesto")
+    @RequestMapping("/repuesto/new")
     public String mostrarFormularioAltaRepuesto(Model model) {
         model.addAttribute("repuesto", new Repuesto());
         return "formAltaRepuesto";
     }
 
-    @RequestMapping("/guardarRepuesto")
+    @RequestMapping("/repuesto/save")
     public String guardarRepuesto(Repuesto repuesto, Model model) {
         repuestoService.guardarRepuesto(repuesto);
         model.addAttribute("repuestos", repuesto);
         return "redirect:/";
     }
 
-    @GetMapping("/editar/{id}")
+    @GetMapping("/repuesto/edit/{id}")
     public String mostrarFormularioEditar(@PathVariable("id") int id, Model model) {
         Repuesto repuesto = repuestoService.buscarRepuestoPorId(id);
         model.addAttribute("repuesto", repuesto);
         return "formEditarRepuesto";
     }
 
-    @PostMapping("/actualizarRepuesto/{id}")
+    @PostMapping("/repuesto/update/{id}")
     public String guardarRepuesto(@PathVariable("id") int id, Repuesto repuesto, BindingResult result, Model model) {
-        repuestoService.guardarRepuesto(repuesto);
         repuestoService.guardarRepuesto(repuesto);
         return "redirect:/";
     }
 
-    @RequestMapping("/eliminarRepuesto/{id}")
+    @GetMapping("/repuesto/addFav/{id}")
+    public String addFavorito(@PathVariable("id") int id, Model model) {
+        Repuesto repuestoAddFav = repuestoService.buscarRepuestoPorId(id);
+        repuestoService.addFavorito(repuestoAddFav);
+        List<Repuesto> listaFavoritos = repuestoService.buscarDestacados();
+        model.addAttribute("repuestos", listaFavoritos);
+        return "listadoHome";
+    }
+
+    @RequestMapping("/repuesto/delete/{id}")
     public String eliminarRepuesto(@PathVariable int id) {
         repuestoService.eliminarRepuesto(id);
         return "redirect:/";
     }
 
-    @RequestMapping("/crearNuevaOrden")
-    public String crearNuevaOrden() {
+    @RequestMapping("/order/new")
+    public String crearNuevaOrden(Model model) {
+        List<Repuesto> repuestos = repuestoService.buscarTodos();
+        model.addAttribute("repuestos", repuestos);
         return "formNuevaOrden";
     }
 }

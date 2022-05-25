@@ -14,6 +14,9 @@
         "th:case": {
             "context": "span"
         },
-        "th:field": {}
+        "th:field": {},
+        "th:value": {
+            "context": "td"
+        }
     }
 }

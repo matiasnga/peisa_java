@@ -11,8 +11,8 @@ public class MoService {
     @Autowired
     MoRepository moRepository;
     
-    public List<Mo> listarManoDeObra(){
-    
+    public List<Mo> buscarTodos(){
     return moRepository.findAll();
+    
     }
 }

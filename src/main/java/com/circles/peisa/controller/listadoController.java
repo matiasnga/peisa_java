@@ -22,7 +22,7 @@ public class listadoController {
 
     @RequestMapping("/")
     public String listadoFavoritos(Model model) {
-        List<Repuesto> listaFavoritos = repuestoService.BuscarDestacados();
+        List<Repuesto> listaFavoritos = repuestoService.buscarDestacados();
         model.addAttribute("repuestos", listaFavoritos);
         return "listadoHome";
     }
@@ -31,17 +31,17 @@ public class listadoController {
     public String buscarPorParametro(@RequestParam("q") String consulta, Model model) {
         List<Repuesto> listaRepuestosPorParametro = repuestoService.BuscarPorParametro(consulta);
         model.addAttribute("repuestos", listaRepuestosPorParametro);
-        List<Mo> listarMo = moService.listarManoDeObra();
+        List<Mo> listarMo = moService.buscarTodos();
         model.addAttribute("mo", listarMo);
         return "listado";
     }
 
     @RequestMapping("/listaDePrecios")
     public String listadoListaDePrecios(Model model) {
-        List<Mo> listarMo = moService.listarManoDeObra();
+        List<Mo> listarMo = moService.buscarTodos();
         model.addAttribute("mo", listarMo);
 
-        List<Repuesto> listaRepuestos = repuestoService.BuscarTodos();
+        List<Repuesto> listaRepuestos = repuestoService.buscarTodos();
         model.addAttribute("repuestos", listaRepuestos);
         return "listado";
     }
