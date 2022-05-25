@@ -13,15 +13,34 @@ public class RepuestoService {
     RepuestoRepository repuestoRepository;
 
     public List<Repuesto> buscarTodos() {
-        return repuestoRepository.findAll();
+
+        List<Repuesto> repuestosPrecioEnPesos = repuestoRepository.findAll();
+        for (Repuesto r : repuestosPrecioEnPesos) {
+            double cotizacionDolar = 120;
+            double setPrecioPesosIvaIncluido = r.getPrecio() * 1.21 * cotizacionDolar;
+            r.setPrecio(setPrecioPesosIvaIncluido);
+        }
+        return repuestosPrecioEnPesos;
     }
 
-    public List<Repuesto> buscarDestacados() {
-        return repuestoRepository.buscarDestacados();
+    public List<Repuesto> buscarFavoritos() {
+          List<Repuesto> repuestosPrecioEnPesos = repuestoRepository.buscarFavoritos();
+        for (Repuesto r : repuestosPrecioEnPesos) {
+            double cotizacionDolar = 120;
+            double setPrecioPesosIvaIncluido = r.getPrecio() * 1.21 * cotizacionDolar;
+            r.setPrecio(setPrecioPesosIvaIncluido);
+        }
+        return repuestosPrecioEnPesos;
     }
 
     public List<Repuesto> BuscarPorParametro(String consulta) {
-        return repuestoRepository.buscarPorDescripcion(consulta.toUpperCase());
+          List<Repuesto> repuestosPrecioEnPesos = repuestoRepository.buscarPorDescripcion(consulta.toUpperCase());
+        for (Repuesto r : repuestosPrecioEnPesos) {
+            double cotizacionDolar = 120;
+            double setPrecioPesosIvaIncluido = r.getPrecio() * 1.21 * cotizacionDolar;
+            r.setPrecio(setPrecioPesosIvaIncluido);
+        }
+        return repuestosPrecioEnPesos;
     }
 
     public Repuesto guardarRepuesto(Repuesto repuesto) {
@@ -42,7 +61,7 @@ public class RepuestoService {
             repuesto.setDestacado(true);
         } else {
             repuesto.setDestacado(false);
-            
+
         }
 
         return repuestoRepository.save(repuesto);

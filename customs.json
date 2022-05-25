@@ -5,6 +5,9 @@
             "context": "h1"
         },
         "th:if": {},
+        "th:unless": {
+            "context": "span"
+        },
         "th:action": {},
         "th:switch": {},
         "th:href": {},

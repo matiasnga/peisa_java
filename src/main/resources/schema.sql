@@ -1,8 +1,20 @@
 /* Showing results for Lista Precio.xlsx */
-DROP TABLE IF EXISTS repuestos;
+DROP TABLE IF EXISTS orden;
 DROP TABLE IF EXISTS mo;
-DROP TABLE IF EXISTS shooping_cart;
-DROP TABLE IF EXISTS orders;
+DROP TABLE IF EXISTS repuestos;
+
+DROP TABLE IF EXISTS orden;
+
+CREATE TABLE orden(
+id INT IDENTITY PRIMARY KEY,
+mo INT,
+repuestos VARCHAR(200),
+factura VARCHAR(200),
+totalapagar DOUBLE,
+mediodepago INT,
+finalizada BOOLEAN
+);
+
 
 CREATE TABLE mo(
 id INT IDENTITY PRIMARY KEY,
@@ -20,13 +32,6 @@ VALUES
 (5, 'MCD', 'Mantenimiento Con Desmontaje', 18000);
 
 
-CREATE TABLE shopping_cart(
-id INT IDENTITY PRIMARY KEY,
-created_at DATE,
-items VARCHAR(200),
-price DOUBLE,
-quantity INT
-);
 
 
 /* CREATE TABLE */

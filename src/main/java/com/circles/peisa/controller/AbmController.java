@@ -5,6 +5,7 @@ import com.circles.peisa.service.RepuestoService;
 import java.util.List;
 
 import com.circles.peisa.domain.Mo;
+import com.circles.peisa.service.MoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +20,8 @@ public class AbmController {
 
     @Autowired
     RepuestoService repuestoService;
+    @Autowired
+    MoService moService;
 
     @RequestMapping("/repuesto/new")
     public String mostrarFormularioAltaRepuesto(Model model) {
@@ -50,7 +53,7 @@ public class AbmController {
     public String addFavorito(@PathVariable("id") int id, Model model) {
         Repuesto repuestoAddFav = repuestoService.buscarRepuestoPorId(id);
         repuestoService.addFavorito(repuestoAddFav);
-        List<Repuesto> listaFavoritos = repuestoService.buscarDestacados();
+        List<Repuesto> listaFavoritos = repuestoService.buscarFavoritos();
         model.addAttribute("repuestos", listaFavoritos);
         return "redirect:/";
     }
@@ -63,6 +66,8 @@ public class AbmController {
 
     @RequestMapping("/order/new")
     public String crearNuevaOrden(Model model) {
+        List<Mo> mo = moService.buscarTodos();
+        model.addAttribute("mo", mo);
         List<Repuesto> repuestos = repuestoService.buscarTodos();
         model.addAttribute("repuestos", repuestos);
         return "formNuevaOrden";
