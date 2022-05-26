@@ -11,39 +11,50 @@ public class RepuestoService {
 
     @Autowired
     RepuestoRepository repuestoRepository;
+    private double cotizacionDolar = 124.25;
 
-    public List<Repuesto> buscarTodos() {
+    public double getCotizacionDolar() {
+        return cotizacionDolar;
+    }
 
-        List<Repuesto> repuestosPrecioEnPesos = repuestoRepository.findAll();
-        for (Repuesto r : repuestosPrecioEnPesos) {
-            double cotizacionDolar = 120;
+    public void setCotizacionDolar(double cotizacionDolar) {
+        this.cotizacionDolar = cotizacionDolar;
+    }
+    
+
+    public List<Repuesto> convertirAPesos(List listaConvertidaAPesos) {
+
+        List<Repuesto> listaEnDolares = repuestoRepository.findAll();
+        for (Repuesto r : listaEnDolares) {
             double setPrecioPesosIvaIncluido = r.getPrecio() * 1.21 * cotizacionDolar;
             r.setPrecio(setPrecioPesosIvaIncluido);
         }
-        return repuestosPrecioEnPesos;
+        return listaConvertidaAPesos;
+    }
+
+    public List<Repuesto> buscarTodos() {
+        return repuestoRepository.findAll();
     }
 
     public List<Repuesto> buscarFavoritos() {
-          List<Repuesto> repuestosPrecioEnPesos = repuestoRepository.buscarFavoritos();
-        for (Repuesto r : repuestosPrecioEnPesos) {
-            double cotizacionDolar = 120;
-            double setPrecioPesosIvaIncluido = r.getPrecio() * 1.21 * cotizacionDolar;
-            r.setPrecio(setPrecioPesosIvaIncluido);
-        }
-        return repuestosPrecioEnPesos;
+        return repuestoRepository.buscarFavoritos();
     }
 
-    public List<Repuesto> BuscarPorParametro(String consulta) {
-          List<Repuesto> repuestosPrecioEnPesos = repuestoRepository.buscarPorDescripcion(consulta.toUpperCase());
-        for (Repuesto r : repuestosPrecioEnPesos) {
-            double cotizacionDolar = 120;
-            double setPrecioPesosIvaIncluido = r.getPrecio() * 1.21 * cotizacionDolar;
-            r.setPrecio(setPrecioPesosIvaIncluido);
-        }
-        return repuestosPrecioEnPesos;
+    public List<Repuesto> buscarPorParametro(String consulta) {
+        return repuestoRepository.buscarPorDescripcion(consulta.toUpperCase());
     }
 
     public Repuesto guardarRepuesto(Repuesto repuesto) {
+        return repuestoRepository.save(repuesto);
+    }
+
+    public Repuesto addFavorito(Repuesto repuesto) {
+        if (!repuesto.getDestacado()) {
+            repuesto.setDestacado(true);
+        } else {
+            repuesto.setDestacado(false);
+        }
+
         return repuestoRepository.save(repuesto);
     }
 
@@ -56,14 +67,4 @@ public class RepuestoService {
         repuestoRepository.deleteById(id);
     }
 
-    public Repuesto addFavorito(Repuesto repuesto) {
-        if (!repuesto.getDestacado()) {
-            repuesto.setDestacado(true);
-        } else {
-            repuesto.setDestacado(false);
-
-        }
-
-        return repuestoRepository.save(repuesto);
-    }
 }

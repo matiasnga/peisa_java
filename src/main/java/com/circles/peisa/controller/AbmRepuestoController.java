@@ -4,7 +4,6 @@ import com.circles.peisa.domain.Repuesto;
 import com.circles.peisa.service.RepuestoService;
 import java.util.List;
 
-import com.circles.peisa.domain.Mo;
 import com.circles.peisa.service.MoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,7 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class AbmController {
+public class abmRepuestoController {
 
     @Autowired
     RepuestoService repuestoService;
@@ -64,12 +63,5 @@ public class AbmController {
         return "redirect:/";
     }
 
-    @RequestMapping("/order/new")
-    public String crearNuevaOrden(Model model) {
-        List<Mo> mo = moService.buscarTodos();
-        model.addAttribute("mo", mo);
-        List<Repuesto> repuestos = repuestoService.buscarTodos();
-        model.addAttribute("repuestos", repuestos);
-        return "formNuevaOrden";
-    }
+    
 }

@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.ManyToOne;
 
 @Entity
 
@@ -13,12 +13,22 @@ public class Orden {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private int mo;
     private String repuestos;
     private String factura;
     private double totalapagar;
-    private int mediodepago;
+    private int mediodepago_id;
     private boolean finalizada;
+
+    @ManyToOne
+    private Mo mo;
+
+    public int getMediodepago_id() {
+        return mediodepago_id;
+    }
+
+    public void setMediodepago_id(int mediodepago_id) {
+        this.mediodepago_id = mediodepago_id;
+    }
 
     public double getTotalapagar() {
         return totalapagar;
@@ -28,14 +38,8 @@ public class Orden {
         this.totalapagar = totalapagar;
     }
 
-    public int getMediodepago() {
-        return mediodepago;
-    }
-
-    public void setMediodepago(int mediodepago) {
-        this.mediodepago = mediodepago;
-    }
-
+ 
+ 
     public boolean isFinalizada() {
         return finalizada;
     }
@@ -51,7 +55,6 @@ public class Orden {
     public void totalapagar(Double totalapagar) {
         this.totalapagar = totalapagar;
     }
-   
 
     public Integer getId() {
         return id;
@@ -61,11 +64,11 @@ public class Orden {
         this.id = id;
     }
 
-    public int getMo() {
+    public Mo getMo() {
         return mo;
     }
 
-    public void setMo(int mo) {
+    public void setMo(Mo mo) {
         this.mo = mo;
     }
 
@@ -85,9 +88,4 @@ public class Orden {
         this.factura = factura;
     }
 
-    
-
-    
-
-    
 }

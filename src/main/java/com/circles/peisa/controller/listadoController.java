@@ -26,19 +26,25 @@ public class listadoController {
 
     @RequestMapping("/")
     public String listadoFavoritos(Model model) {
-        List<Repuesto> listaFavoritos = repuestoService.buscarFavoritos();
-
-        model.addAttribute("repuestos", listaFavoritos);
-
+        List<Repuesto> listaFavoritosAPesos = repuestoService.buscarFavoritos();
+        listaFavoritosAPesos = repuestoService.convertirAPesos(listaFavoritosAPesos);
+        model.addAttribute("repuestos", listaFavoritosAPesos);
         List<Orden> listaOrdenes = ordenService.buscarTodos();
         model.addAttribute("ordenes", listaOrdenes);
+        double dolar = repuestoService.getCotizacionDolar();
+
+        model.addAttribute("cotizacionDolar", dolar);
         return "listado";
     }
 
     @RequestMapping("/buscar")
     public String buscarPorParametro(@RequestParam("q") String consulta, Model model) {
-        List<Repuesto> listaRepuestosPorParametro = repuestoService.BuscarPorParametro(consulta);
-        model.addAttribute("repuestos", listaRepuestosPorParametro);
+        List<Repuesto> listaBusquedaParametroAPesos = repuestoService.buscarPorParametro(consulta);
+        listaBusquedaParametroAPesos = repuestoService.convertirAPesos(listaBusquedaParametroAPesos);
+        model.addAttribute("repuestos", listaBusquedaParametroAPesos);
+        double dolar = repuestoService.getCotizacionDolar();
+
+        model.addAttribute("cotizacionDolar", dolar);
         return "listado";
     }
 
@@ -46,8 +52,11 @@ public class listadoController {
     public String listadoListaDePrecios(Model model) {
         List<Mo> listarMo = moService.buscarTodos();
         model.addAttribute("mo", listarMo);
-        List<Repuesto> listaRepuestos = repuestoService.buscarTodos();
-        model.addAttribute("repuestos", listaRepuestos);
+        List<Repuesto> listaRepuestosAPesos = repuestoService.buscarTodos();
+        listaRepuestosAPesos = repuestoService.convertirAPesos(listaRepuestosAPesos);
+        double dolar = repuestoService.getCotizacionDolar();
+        model.addAttribute("cotizacionDolar", dolar);
+        model.addAttribute("repuestos", listaRepuestosAPesos);
         return "listado";
     }
 }
