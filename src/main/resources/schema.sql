@@ -19,9 +19,9 @@ finalizada BOOLEAN
 );
 
 /* INSERT QUERY NO: 6 */
-INSERT INTO orden(id, mo_id, repuestos, factura, totalapagar, mediodepago_id, finalizada) VALUES
-(1, 1, '---------------------', 'B-001', 3700, 1, false),
-(2, 1, 'FLUJOSTATO PRIORIZACION ON/OFF', 'B-002', 16064.40, 2, false);
+-- INSERT INTO orden(id, mo_id, repuestos, factura, totalapagar, mediodepago_id, finalizada) VALUES
+-- (1, 1, '---------------------', 'B-001', 3700, 1, false),
+-- (2, 1, 'FLUJOSTATO PRIORIZACION ON/OFF', 'B-002', 16064.40, 2, false);
 
 /* INSERT QUERY NO: 7 */
 CREATE TABLE mo(
@@ -48,7 +48,7 @@ descripcion VARCHAR(200)
 
 /* INSERT QUERY NO: 9 */
 ALTER TABLE orden ADD FOREIGN KEY (mo_id) references mo(id); 
-UPDATE orden SET mo_id = 3 where id in (1);
+-- UPDATE orden SET mo_id = 3 where id in (1);
 
 
 /* INSERT QUERY NO: 11 */
