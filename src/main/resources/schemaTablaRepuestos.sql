@@ -1,6 +1,9 @@
 /* CREATE TABLE */
+DROP TABLE IF EXISTS repuestos;
+
 CREATE TABLE repuestos(
-id INT IDENTITY PRIMARY KEY,
+id INT PRIMARY KEY auto_increment,
+
 codigo INT,
 descripcion VARCHAR(100),
 pk INT,

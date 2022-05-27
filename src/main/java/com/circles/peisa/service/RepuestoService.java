@@ -20,7 +20,6 @@ public class RepuestoService {
     public void setCotizacionDolar(double cotizacionDolar) {
         this.cotizacionDolar = cotizacionDolar;
     }
-    
 
     public List<Repuesto> convertirAPesos(List listaConvertidaAPesos) {
 
@@ -33,7 +32,7 @@ public class RepuestoService {
     }
 
     public List<Repuesto> buscarTodos() {
-        return repuestoRepository.findAll();
+        return repuestoRepository.findAllOrderByFav();
     }
 
     public List<Repuesto> buscarFavoritos() {

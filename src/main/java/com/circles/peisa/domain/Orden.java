@@ -16,19 +16,24 @@ public class Orden {
     private String repuestos;
     private String factura;
     private double totalapagar;
-    private int mediodepago_id;
     private boolean finalizada;
 
     @ManyToOne
     private Mo mo;
+    @ManyToOne
+    private Mediodepago mediodepago;
 
-    public int getMediodepago_id() {
-        return mediodepago_id;
+    public Mediodepago getMediodepago() {
+        return mediodepago;
     }
 
-    public void setMediodepago_id(int mediodepago_id) {
-        this.mediodepago_id = mediodepago_id;
+    public void setMediodepago(Mediodepago mediodepago) {
+        this.mediodepago = mediodepago;
     }
+    
+    
+
+  
 
     public double getTotalapagar() {
         return totalapagar;
@@ -38,8 +43,6 @@ public class Orden {
         this.totalapagar = totalapagar;
     }
 
- 
- 
     public boolean isFinalizada() {
         return finalizada;
     }

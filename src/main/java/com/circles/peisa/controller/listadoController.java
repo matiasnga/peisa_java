@@ -25,14 +25,15 @@ public class listadoController {
     OrdenService ordenService;
 
     @RequestMapping("/")
-    public String listadoFavoritos(Model model) {
-        List<Repuesto> listaFavoritosAPesos = repuestoService.buscarFavoritos();
-        listaFavoritosAPesos = repuestoService.convertirAPesos(listaFavoritosAPesos);
-        model.addAttribute("repuestos", listaFavoritosAPesos);
+    public String listadoOrdenes(Model model) {
+       
         List<Orden> listaOrdenes = ordenService.buscarTodos();
         model.addAttribute("ordenes", listaOrdenes);
         double dolar = repuestoService.getCotizacionDolar();
-
+        List<Repuesto> listaFavoritos = repuestoService.buscarFavoritos();
+        listaFavoritos = repuestoService.convertirAPesos(listaFavoritos);
+                     
+        model.addAttribute("favoritos", listaFavoritos);
         model.addAttribute("cotizacionDolar", dolar);
         return "listado";
     }

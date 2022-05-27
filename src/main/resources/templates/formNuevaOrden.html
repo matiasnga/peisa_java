@@ -8,7 +8,7 @@
     <body class="bg-light font-monospace">
         <nav class="navbar navbar-dark bg-secondary sticky-top">
             <div class="container">
-                <a class="navbar-brand" th:href="@{/}">Punto de Venta</a>
+                <a class="navbar-brand" th:href="@{/}">Inicio</a>
             </div>
         </nav>
         <div class="container  mt-4">
@@ -20,7 +20,7 @@
                         <div class="input-group ">
                             <label class="input-group-text" id="manoDeObra">Mano de Obra</label>
                             <select class="form-select"  th:field=*{mo} id="mo">
-                                <option th:each="mo : ${mo}" th:value="${mo.id}" th:text="${mo.codigo}"></option>
+                                <option th:each="mo : ${mo}" th:value="${mo.id}" th:text="${mo.descripcion} + ' - ' + '$' +  ${#numbers.formatDecimal(mo.precio, 1, 'POINT', 2, 'COMMA')}"></option>
                             </select>
                         </div>
 
@@ -29,8 +29,9 @@
                             <label class="input-group-text" id="Repuestos">Repuestos</label>
                             <select class="form-select"  th:field=*{repuestos} id="repuesto">
                                 <option value="">Seleccionar Repuesto...</option>
-                                <option th:each="repuesto : ${repuestos}" th:value="${repuesto.descripcion}" th:text="${repuesto.descripcion}"></option>
+                                <option th:each="repuesto : ${repuestos}" th:value="${repuesto.id}" th:text="${repuesto.descripcion} + ' - ' + '$' +  ${#numbers.formatDecimal(repuesto.precio, 1, 'POINT', 2, 'COMMA')}"></option>
                             </select>
+                             <a class="btn btn-secondary" th:href="@{/repuesto/new}">Nuevo Repuesto</a>
                         </div>
 
 
@@ -40,9 +41,9 @@
                         </div>
                         
                        <div class="input-group ">
-                            <label class="input-group-text" id="mediodepago">Medio de Pago</label>
-                            <select class="form-select"  th:field=*{mediodepago_id} id="mediodepago_id">
-                                <option th:each="mp : ${mediosdepago}" th:value="${mp.id}" th:text="${mp.descripcion}"></option>
+                            <label class="input-group-text" id="mediodepago_id">Medio de Pago</label>
+                            <select class="form-select"  th:field=*{mediodepago} id="mediodepago_id">
+                                <option th:each="mediosdepago : ${mediosdepago}" th:value="${mediosdepago.id}" th:text="${mediosdepago.descripcion}"></option>
                             </select>
                         </div>
 

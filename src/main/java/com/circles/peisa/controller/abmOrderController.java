@@ -27,18 +27,20 @@ public class abmOrderController {
     MoService moService;
     @Autowired
     RepuestoService repuestoService;
-@Autowired
-MediodepagoService mediodepagoService;
+    @Autowired
+    MediodepagoService mediodepagoService;
+
     @RequestMapping("/order/new")
     public String crearNuevaOrden(Model model) {
         List<Mo> mo = moService.buscarTodos();
         model.addAttribute("mo", mo);
-        List<Repuesto> repuestos = repuestoService.buscarTodos();
-        model.addAttribute("repuestos", repuestos);
-        
+
+        List<Repuesto> listaRepuestosAPesos = repuestoService.buscarTodos();
+        listaRepuestosAPesos = repuestoService.convertirAPesos(listaRepuestosAPesos);
+        model.addAttribute("repuestos", listaRepuestosAPesos);
         List<Mediodepago> mediosdepago = mediodepagoService.buscarTodos();
         model.addAttribute("mediosdepago", mediosdepago);
-        
+
         model.addAttribute("orden", new Orden());
         return "formNuevaOrden";
     }
@@ -57,9 +59,23 @@ MediodepagoService mediodepagoService;
     }
 
     @RequestMapping("/order/save")
-    public String guardarOrden(Orden orden, Model model) {
-        ordenService.guardarOrden(orden);
-        model.addAttribute("ordenes", orden);
+    public String guardarOrden(Orden orden) {
+        Mo getMo = orden.getMo();
+
+        if (orden.getRepuestos() != "") {
+            int idBuscar = Integer.parseInt(orden.getRepuestos());
+            Repuesto repuesto = repuestoService.buscarRepuestoPorId(idBuscar);
+            double setPrecioPesosIvaIncluido = repuesto.getPrecio() * 1.21 * this.repuestoService.getCotizacionDolar();
+            orden.setRepuestos(repuesto.getDescripcion());
+            double totalAPagar = getMo.getPrecio() + setPrecioPesosIvaIncluido;
+            orden.setTotalapagar(totalAPagar);
+        } else {
+            orden.setRepuestos("---------------------");
+            orden.setTotalapagar(getMo.getPrecio());
+
+        }
+            ordenService.guardarOrden(orden);
+
         return "redirect:/";
     }
 

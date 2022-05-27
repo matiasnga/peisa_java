@@ -8,7 +8,7 @@
     <body class="bg-light font-monospace  ">
         <nav class="navbar navbar-expand-lg bg-secondary navbar-dark sticky-top">
             <div class="container">
-                <a class="navbar-brand" th:href="@{/}">Punto de Venta</a>
+                <a class="navbar-brand" th:href="@{/}">Inicio</a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -22,25 +22,79 @@
                             <a class="nav-link">|</a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link " th:href="@{/order/new}"><mark><small>Nueva Orden</small></mark></a> 
+                            <a class="nav-link " th:href="@{/order/new}"><mark><small>+ Nueva Orden</small></mark></a> 
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
+
+
+
         <div class="container mt-4">
+            <div class="mb-3 ">
+                <span class="text-light bg-secondary p-2" th:text="'1 USD = $ ' + ${cotizacionDolar}" ></span>
+            </div>
 
-
-            <div class="mb-3 "><span class="text-light bg-secondary p-2" th:text="'1 USD = $ ' + ${cotizacionDolar}" ></span></div>
+            <!-- FORMULARIO BUSCAR-->
             <form th:action="@{/buscar}" class="d-flex">
-                <input autofocus="autofocus" name="q" class="form-control form-control-sm " type="search" th:placeholder="${param.q}"  aria-label="Search">
+                <input autofocus="autofocus" name="q" class="form-control form-control-sm " type="search"  placeholder="Buscar repuestos"   aria-label="Search">
                 <a class="p-2"> </a>
                 <button class="btn btn-secondary" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                 <a class="p-2"> </a>
             </form>
-            <div class="table-responsive mt-4" th:if="${ not#lists.isEmpty(mo)}">
 
-                <table class="table table-sm table-striped table-light ">   <center>Mano de Obra</center>
+
+            <!-- TABLA ORDENES-->
+            <div class="table-responsive mt-4" th:if="${ not#lists.isEmpty(ordenes)}">
+                <div class="text-light bg-secondary  p-2">
+                    <span class="p-2 ">#### ORDENES ####</span>
+                </div>
+                <table class="table table-sm table-striped table-light mb-4">
+                    <thead>
+                        <tr>
+                            <th class="text-dark" scope="col">Id</th>
+                            <th class="text-dark" scope="col">MO</th>
+                            <th class="text-dark" scope="col">Repuestos</th>
+                            <th class="text-dark" scope="col">Factura</th>
+                            <th class="text-dark" scope="col">Total $</th>
+                            <th class="text-dark" scope="col">Medio de Pago</th>
+                            <th class="text-dark" scope="col">Finalizada</th>
+
+                        </tr>
+                    </thead>
+                    <tr th:each="orden : ${ordenes}">
+                        <td th:text="${orden.id}"></td>
+                        <td th:text="${orden.mo.codigo}"></td>
+                        <td th:text="${orden.repuestos}"></td>
+                        <td th:text="${orden.factura}"></td>
+                        <td>
+                            <span th:text="'$&nbsp;' +  ${#numbers.formatDecimal(orden.totalapagar, 1, 'POINT', 2, 'COMMA')} "></span>
+                            
+                        </td>
+
+                        <td th:text="${orden.mediodepago.descripcion}"></td>
+                        
+                        <td><a th:text="${orden.finalizada} ? 'SI' : 'NO'"></a>                              
+                        </td>
+                        <td>          
+                            <span class="text-secondary">EDITAR</span>      <!--<a th:href="@{'/order/edit/{id}'(id=${orden.id})}" class="text-primary " >EDITAR</a>-->
+                            <br>
+                            <a th:href="@{'/order/delete/{id}'(id=${orden.id})}" class="text-danger" >BORRAR</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+
+
+
+            <!-- TABLA MANO DE OBRA-->
+            <div class="table-responsive mt-4" th:if="${ not#lists.isEmpty(mo)}">
+                <table class="table table-sm table-striped table-light "> 
+                    <div class="text-light bg-secondary p-2">
+                    <span class="p-2 ">#### TARIFARIO MANO DE OBRA ####</span>
+                    </div>
                     <thead>
                         <tr>
                             <th class="text-dark" scope="col">Código</th>
@@ -60,49 +114,20 @@
                 </table>
             </div>
 
+            <!-- TABLA REPUESTOS-->
 
-            <div class="table-responsive mb-4" th:if="${ not#lists.isEmpty(ordenes)}"><center>Ordenes</center>
-                <table class="table table-sm table-striped table-light mb-4">
-                    <thead>
-                        <tr>
-                            <th class="text-dark" scope="col">Id</th>
-                            <th class="text-dark" scope="col">MO</th>
-                            <th class="text-dark" scope="col">Repuestos</th>
-                            <th class="text-dark" scope="col">Factura</th>
-                            <th class="text-dark" scope="col">Total $</th>
-                            <th class="text-dark" scope="col">Medio de Pago</th>
-                            <th class="text-dark" scope="col">Finalizada</th>
+            <div class="table-responsive mb-4" th:if="${ not#lists.isEmpty(repuestos)}">
+                <div class="text-light bg-secondary p-2">
+                    <span class="p-2 ">#### LISTA DE PRECIOS DE REPUESTOS EN PESOS IVA INCLUIDO ####</span>
+                </div>
 
-                        </tr>
-                    </thead>
-                    <tr th:each="orden : ${ordenes}">
-                        <td th:text="${orden.id}"></td>
-                        <td th:text="${orden.mo.codigo}"></td>
-                        <td th:text="${orden.repuestos}"></td>
-                        <td th:text="${orden.factura}"></td>
-                        <td th:text="${orden.totalapagar}"></td>
-
-                        <td th:text="${orden.mediodepago_id}"></td>
-                        <td><a th:text="${orden.finalizada} ? 'SI' : 'NO'"></a>                              
-                        </td>
-                        <td>          
-                            <a th:href="@{'/order/edit/{id}'(id=${orden.id})}" class="text-primary" >EDITAR</a>
-
-                            <a th:href="@{'/order/delete/{id}'(id=${orden.id})}" class="text-danger" >BORRAR</a>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-
-
-            <div class="table-responsive mb-4" th:if="${ not#lists.isEmpty(repuestos)}"><center>Repuestos</center>
                 <table class="table table-sm table-striped table-light ">
                     <thead>
                         <tr>
                             <th class="text-dark" scope="col">Codigo</th>
                             <th class="text-dark" scope="col">Descripción</th>
                             <th class="text-dark" scope="col">Precio</th>
-                            <th class="text-dark" scope="col">Fav</th>
+                            <th class="text-dark" scope="col">Favorito</th>
                         </tr>
                     </thead>
                     <tr th:each="repuesto : ${repuestos}">
@@ -116,12 +141,48 @@
 
                         <td>  
 
-                            <a th:text="${repuesto.destacado} ? 'REMOVE' : 'ADD'" th:href="@{'/repuesto/addFav/{id}'(id=${repuesto.id})}"></a>                              
+                            <a th:text="${repuesto.destacado} ? 'REMOVE ' : 'ADD'" th:href="@{'/repuesto/addFav/{id}'(id=${repuesto.id})}"></a>                              
                         </td>
 
                     </tr>
                 </table>
             </div>
+            
+            
+                      <!-- TABLA REPUESTOS-->
+
+            <div class="table-responsive mb-4" th:if="${ not#lists.isEmpty(favoritos)}">
+                <div class="text-light bg-secondary p-2">
+                    <span class="p-2 ">#### REPUESTOS FAVORITOS ####</span>
+                </div>
+
+                <table class="table table-sm table-striped table-light ">
+                    <thead>
+                        <tr>
+                            <th class="text-dark" scope="col">Codigo</th>
+                            <th class="text-dark" scope="col">Descripción</th>
+                            <th class="text-dark" scope="col">Precio</th>
+                            <th class="text-dark" scope="col">Favorito</th>
+                        </tr>
+                    </thead>
+                    <tr th:each="favorito : ${favoritos}">
+                        <td>
+                            <a th:href="@{'/repuesto/edit/{id}'(id=${favorito.id})}"  type="submit"><span th:text="${favorito.codigo}"></span></a>
+                        </td>
+                        <td>
+                            <span th:text="${favorito.descripcion}"></span>
+                        </td>
+                        <td><span th:text=" '$&nbsp;' +  ${#numbers.formatDecimal(favorito.precio, 1, 'POINT', 2, 'COMMA')}"></td>
+
+                        <td>  
+
+                            <a th:text="${favorito.destacado} ? 'REMOVE ' : 'ADD'" th:href="@{'/repuesto/addFav/{id}'(id=${favorito.id})}"></a>                              
+                        </td>
+
+                    </tr>
+                </table>
+            </div>
+            
         </div>
 
         <div class="bg-secondary fixed-bottom text-light text-center">

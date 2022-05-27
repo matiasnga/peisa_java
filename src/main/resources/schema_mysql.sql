@@ -18,7 +18,7 @@ finalizada BOOLEAN
 
 INSERT INTO orden(id, mo_id, repuestos, factura, totalapagar, mediodepago_id, finalizada)
 VALUES
-(1, 2, 'DB XAMPP SQL', 'A-001', 150.20, 1, false),
+(1, 108, 'FLUJOSTATO PRIORIZACION ON/OFF', 'B-001', 150.20, 1, false),
 (2, 1, 'DB XAMPP SQL', 'B-001', 122350.20, 2, false);
 
 

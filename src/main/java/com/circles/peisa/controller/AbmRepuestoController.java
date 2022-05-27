@@ -24,7 +24,9 @@ public class abmRepuestoController {
 
     @RequestMapping("/repuesto/new")
     public String mostrarFormularioAltaRepuesto(Model model) {
-        model.addAttribute("repuesto", new Repuesto());
+        Repuesto repuesto = new Repuesto();
+        repuesto.setDestacado(true);
+        model.addAttribute("repuesto", repuesto);
         return "formAltaRepuesto";
     }
 
@@ -32,7 +34,7 @@ public class abmRepuestoController {
     public String guardarRepuesto(Repuesto repuesto, Model model) {
         repuestoService.guardarRepuesto(repuesto);
         model.addAttribute("repuestos", repuesto);
-        return "redirect:/";
+        return "redirect:/order/new";
     }
 
     @GetMapping("/repuesto/edit/{id}")
@@ -52,7 +54,7 @@ public class abmRepuestoController {
     public String addFavorito(@PathVariable("id") int id, Model model) {
         Repuesto repuestoAddFav = repuestoService.buscarRepuestoPorId(id);
         repuestoService.addFavorito(repuestoAddFav);
-        List<Repuesto> listaFavoritos = repuestoService.buscarFavoritos();
+        List<Repuesto> listaFavoritos = repuestoService.buscarTodos();
         model.addAttribute("repuestos", listaFavoritos);
         return "redirect:/";
     }
@@ -60,7 +62,7 @@ public class abmRepuestoController {
     @RequestMapping("/repuesto/delete/{id}")
     public String eliminarRepuesto(@PathVariable int id) {
         repuestoService.eliminarRepuesto(id);
-        return "redirect:/";
+        return "redirect:/listaDePrecios";
     }
 
     

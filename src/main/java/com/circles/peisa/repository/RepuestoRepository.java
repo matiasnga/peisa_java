@@ -14,4 +14,8 @@ public interface RepuestoRepository extends JpaRepository<Repuesto, Integer> {
     public List<Repuesto> buscarFavoritos();
 
     public Repuesto findById(int id);
+    
+    
+    @Query("FROM Repuesto r  ORDER BY r.destacado DESC, r.codigo ASC")
+    public List<Repuesto> findAllOrderByFav();
 }

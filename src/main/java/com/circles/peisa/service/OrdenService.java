@@ -13,7 +13,7 @@ public class OrdenService {
     OrdenRepository ordenRepository;
     
     public List<Orden> buscarTodos() {
-        return ordenRepository.findAll();
+        return ordenRepository.buscarPorOrderIdDesc();
     }
     public Orden buscarOrdenById(int id){
     return ordenRepository.findById(id);
