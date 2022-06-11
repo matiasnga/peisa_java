@@ -22,6 +22,7 @@ public class Orden {
     private Mo mo;
     @ManyToOne
     private Mediodepago mediodepago;
+    
 
     public Mediodepago getMediodepago() {
         return mediodepago;

@@ -78,7 +78,9 @@
                         <td><a th:text="${orden.finalizada} ? 'SI' : 'NO'"></a>                              
                         </td>
                         <td>          
-                            <span class="text-secondary">EDITAR</span>      <!--<a th:href="@{'/order/edit/{id}'(id=${orden.id})}" class="text-primary " >EDITAR</a>-->
+                            <!--<span class="text-secondary">EDITAR</span>-->      
+                            
+                            <a th:href="@{'/order/edit/{id}'(id=${orden.id})}" class="text-primary " >EDITAR</a>
                             <br>
                             <a th:href="@{'/order/delete/{id}'(id=${orden.id})}" class="text-danger" >BORRAR</a>
                         </td>

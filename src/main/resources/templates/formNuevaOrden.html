@@ -20,7 +20,7 @@
                         <div class="input-group ">
                             <label class="input-group-text" id="manoDeObra">Mano de Obra</label>
                             <select class="form-select"  th:field=*{mo} id="mo">
-                                <option th:each="mo : ${mo}" th:value="${mo.id}" th:text="${mo.descripcion} + ' - ' + '$' +  ${#numbers.formatDecimal(mo.precio, 1, 'POINT', 2, 'COMMA')}"></option>
+                                <option th:each="mo : ${mo}" th:value="${mo.id}" th:text="'$' +  ${#numbers.formatDecimal(mo.precio, 1, 'POINT', 2, 'COMMA')} + ' - ' + ${mo.descripcion}"></option>
                             </select>
                         </div>
 
@@ -31,16 +31,18 @@
                                 <option value="">Seleccionar Repuesto...</option>
                                 <option th:each="repuesto : ${repuestos}" th:value="${repuesto.id}" th:text="${repuesto.descripcion} + ' - ' + '$' +  ${#numbers.formatDecimal(repuesto.precio, 1, 'POINT', 2, 'COMMA')}"></option>
                             </select>
-                             <a class="btn btn-secondary" th:href="@{/repuesto/new}">Nuevo Repuesto</a>
+                            <span class="ms-3 me-3"><a class="btn btn-primary" th:href="@{/repuesto/new}">Agregar</a>
+                            </span>
+                            <span class=""><a class="btn btn-secondary" th:href="@{/repuesto/new}">Nuevo</a>
                         </div>
 
 
-                      <div class="input-group">
+                        <div class="input-group">
                             <span class="input-group-text"  id="factura">Factura</span>
                             <input  class="form-control" th:field=*{factura}  required>
                         </div>
-                        
-                       <div class="input-group ">
+
+                        <div class="input-group ">
                             <label class="input-group-text" id="mediodepago_id">Medio de Pago</label>
                             <select class="form-select"  th:field=*{mediodepago} id="mediodepago_id">
                                 <option th:each="mediosdepago : ${mediosdepago}" th:value="${mediosdepago.id}" th:text="${mediosdepago.descripcion}"></option>

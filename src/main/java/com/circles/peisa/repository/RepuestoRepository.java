@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface RepuestoRepository extends JpaRepository<Repuesto, Integer> {
 
-    @Query("FROM Repuesto r WHERE r.descripcion LIKE %?1% OR r.codigo LIKE %?1% ORDER BY r.codigo")
+    @Query("FROM Repuesto r WHERE r.descripcion LIKE %?1% OR r.codigo LIKE %?1% ORDER BY r.descripcion")
     public List<Repuesto> buscarPorDescripcion(String consulta);
 
     @Query("FROM Repuesto r WHERE r.destacado IS 1 ORDER BY r.descripcion ASC")
@@ -16,6 +16,6 @@ public interface RepuestoRepository extends JpaRepository<Repuesto, Integer> {
     public Repuesto findById(int id);
     
     
-    @Query("FROM Repuesto r  ORDER BY r.destacado DESC, r.codigo ASC")
+    @Query("FROM Repuesto r  ORDER BY r.destacado DESC, r.descripcion ASC")
     public List<Repuesto> findAllOrderByFav();
 }

@@ -47,6 +47,9 @@ public class abmOrderController {
 
     @GetMapping("/order/edit/{id}")
     public String editarOrden(@PathVariable("id") int id, Model model) {
+        model.addAttribute("repuestos", repuestoService.buscarTodos());
+        model.addAttribute("mediosdepago", mediodepagoService.buscarTodos());
+        model.addAttribute("mo", moService.buscarTodos());
         Orden orden = ordenService.buscarOrdenById(id);
         model.addAttribute("orden", orden);
         return "formEditarOrden";
@@ -54,27 +57,40 @@ public class abmOrderController {
 
     @PostMapping("/order/update/{id}")
     public String updateOrden(@PathVariable("id") int id, Orden orden) {
+        Mo getMo = orden.getMo();
+        if (orden.getRepuestos() != "") {
+            int idBuscar = Integer.parseInt(orden.getRepuestos());
+            Repuesto repuesto = repuestoService.buscarRepuestoPorId(idBuscar);
+            double setPrecioPesosIvaIncluido = repuesto.getPrecio() * 1.21 * repuestoService.getCotizacionDolar();
+            orden.setRepuestos(repuesto.getDescripcion());
+            double totalAPagar = getMo.getPrecio() + setPrecioPesosIvaIncluido;
+            orden.setTotalapagar(totalAPagar);
+        } else {
+            orden.setRepuestos("No Utilizado");
+            orden.setTotalapagar(getMo.getPrecio());
+
+        }
         ordenService.guardarOrden(orden);
+
         return "redirect:/";
     }
 
     @RequestMapping("/order/save")
     public String guardarOrden(Orden orden) {
         Mo getMo = orden.getMo();
-
         if (orden.getRepuestos() != "") {
             int idBuscar = Integer.parseInt(orden.getRepuestos());
             Repuesto repuesto = repuestoService.buscarRepuestoPorId(idBuscar);
-            double setPrecioPesosIvaIncluido = repuesto.getPrecio() * 1.21 * this.repuestoService.getCotizacionDolar();
+            double setPrecioPesosIvaIncluido = repuesto.getPrecio() * 1.21 * repuestoService.getCotizacionDolar();
             orden.setRepuestos(repuesto.getDescripcion());
             double totalAPagar = getMo.getPrecio() + setPrecioPesosIvaIncluido;
             orden.setTotalapagar(totalAPagar);
         } else {
-            orden.setRepuestos("---------------------");
+            orden.setRepuestos("No Utilizado");
             orden.setTotalapagar(getMo.getPrecio());
 
         }
-            ordenService.guardarOrden(orden);
+        ordenService.guardarOrden(orden);
 
         return "redirect:/";
     }
