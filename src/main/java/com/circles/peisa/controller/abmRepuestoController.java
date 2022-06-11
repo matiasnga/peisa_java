@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class AbmRepuestoController {
+public class abmRepuestoController {
 
     @Autowired
     RepuestoService repuestoService;
