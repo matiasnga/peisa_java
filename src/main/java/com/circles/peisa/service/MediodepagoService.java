@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class MediodepagoService {
     @Autowired
-   MediodepagoRepository mediodepagoRepository;
+    MediodepagoRepository mediodepagoRepository;
     public List<Mediodepago> buscarTodos(){
         return mediodepagoRepository.findAll();
     }
