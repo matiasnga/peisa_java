@@ -1,6 +1,10 @@
-/schemaTablaRepuestos.sql
-/schema_mysql.sql
+schemaTablaRepuestos.sql
+schema_mysql.sql
+
 .DS_Store
+nbactions.xml
+mvnw.cmd
+mvnw
 
 HELP.md
 target/
@@ -35,6 +39,3 @@ build/
 
 ### VS Code ###
 .vscode/
-/schema.sql
-/mvnw
-/mvnw.cmd
