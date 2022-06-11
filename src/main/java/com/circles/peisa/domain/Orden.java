@@ -21,14 +21,14 @@ public class Orden {
     @ManyToOne
     private Mo mo;
     @ManyToOne
-    private Mediodepago mediodepago;
+    private MedioDePago mediodepago;
     
 
-    public Mediodepago getMediodepago() {
+    public MedioDePago getMediodepago() {
         return mediodepago;
     }
 
-    public void setMediodepago(Mediodepago mediodepago) {
+    public void setMediodepago(MedioDePago mediodepago) {
         this.mediodepago = mediodepago;
     }
     

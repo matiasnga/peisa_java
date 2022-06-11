@@ -6,7 +6,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "mediosdepago")
-public class Mediodepago {
+public class MedioDePago {
     @Id
     private Integer Id;
     private String descripcion;

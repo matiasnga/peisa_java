@@ -1,6 +1,6 @@
 package com.circles.peisa.controller;
 
-import com.circles.peisa.domain.Mediodepago;
+import com.circles.peisa.domain.MedioDePago;
 import com.circles.peisa.domain.Mo;
 import com.circles.peisa.domain.Orden;
 import com.circles.peisa.domain.Repuesto;
@@ -38,7 +38,7 @@ public class abmOrderController {
         List<Repuesto> listaRepuestosAPesos = repuestoService.buscarTodos();
         listaRepuestosAPesos = repuestoService.convertirAPesos(listaRepuestosAPesos);
         model.addAttribute("repuestos", listaRepuestosAPesos);
-        List<Mediodepago> mediosdepago = mediodepagoService.buscarTodos();
+        List<MedioDePago> mediosdepago = mediodepagoService.buscarTodos();
         model.addAttribute("mediosdepago", mediosdepago);
 
         model.addAttribute("orden", new Orden());
