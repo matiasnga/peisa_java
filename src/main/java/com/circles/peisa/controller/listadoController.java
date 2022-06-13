@@ -1,14 +1,13 @@
 package com.circles.peisa.controller;
 
+import com.circles.peisa.domain.CotizacionDolar;
 import com.circles.peisa.domain.Mo;
 import com.circles.peisa.domain.Orden;
 import com.circles.peisa.service.CotizacionDolarService;
 import com.circles.peisa.service.MoService;
 
-import com.circles.peisa.domain.Repuesto;
 import com.circles.peisa.service.OrdenService;
 import com.circles.peisa.service.RepuestoService;
-
 
 import java.util.List;
 
@@ -33,25 +32,23 @@ public class listadoController {
     @RequestMapping("/")
     public String listadoOrdenes(Model model) {
 
-        double dolar = cotizacionDolarService.obtenerCotizacion().getVenta();
         List<Orden> listaOrdenes = ordenService.buscarTodos();
         model.addAttribute("ordenes", listaOrdenes);
 
-        List<Repuesto> listaFavoritos = repuestoService.buscarFavoritos();
-        listaFavoritos = repuestoService.convertirAPesos(listaFavoritos);
-
+        List listaFavoritos = cotizacionDolarService.convertirAPesos(repuestoService.buscarFavoritos());
         model.addAttribute("favoritos", listaFavoritos);
+
+        CotizacionDolar dolar = cotizacionDolarService.obtenerCotizacion();
         model.addAttribute("cotizacionDolar", dolar);
         return "listado";
     }
 
     @RequestMapping("/buscar")
     public String buscarPorParametro(@RequestParam("q") String consulta, Model model) {
-        List<Repuesto> listaBusquedaParametroAPesos = repuestoService.buscarPorParametro(consulta);
-        listaBusquedaParametroAPesos = repuestoService.convertirAPesos(listaBusquedaParametroAPesos);
+        List listaBusquedaParametroAPesos = cotizacionDolarService.convertirAPesos(repuestoService.buscarPorParametro(consulta));
         model.addAttribute("repuestos", listaBusquedaParametroAPesos);
-        double dolar = repuestoService.getCotizacionDolar();
 
+        double dolar = cotizacionDolarService.obtenerCotizacion().getVenta();
         model.addAttribute("cotizacionDolar", dolar);
         return "listado";
     }
@@ -60,19 +57,13 @@ public class listadoController {
     public String listadoListaDePrecios(Model model) {
         List<Mo> listarMo = moService.buscarTodos();
         model.addAttribute("mo", listarMo);
-        List<Repuesto> listaRepuestosAPesos = repuestoService.buscarTodos();
-        listaRepuestosAPesos = repuestoService.convertirAPesos(listaRepuestosAPesos);
-        double dolar = repuestoService.getCotizacionDolar();
-        model.addAttribute("cotizacionDolar", dolar);
+
+        List listaRepuestosAPesos = cotizacionDolarService.convertirAPesos(repuestoService.buscarTodos());
         model.addAttribute("repuestos", listaRepuestosAPesos);
+
+        CotizacionDolar dolar = cotizacionDolarService.obtenerCotizacion();
+        model.addAttribute("cotizacionDolar", dolar);
         return "listado";
     }
 
 }
-
-//        for (Repuesto r : listaRepuestosPorParametro) {
-//            double cotizacionDolar = 120;
-//            double setPrecioPesosIvaIncluido = r.getPrecio() * 1.21 * cotizacionDolar;
-//            r.setPrecio(setPrecioPesosIvaIncluido);
-//        }
-

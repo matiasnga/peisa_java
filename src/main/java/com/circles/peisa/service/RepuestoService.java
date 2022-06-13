@@ -11,25 +11,8 @@ public class RepuestoService {
 
     @Autowired
     RepuestoRepository repuestoRepository;
-    private double cotizacionDolar = 124.25;
 
-    public double getCotizacionDolar() {
-        return cotizacionDolar;
-    }
 
-    public void setCotizacionDolar(double cotizacionDolar) {
-        this.cotizacionDolar = cotizacionDolar;
-    }
-
-    public List<Repuesto> convertirAPesos(List listaConvertidaAPesos) {
-
-        List<Repuesto> listaEnDolares = repuestoRepository.findAll();
-        for (Repuesto r : listaEnDolares) {
-            double setPrecioPesosIvaIncluido = r.getPrecio() * 1.21 * cotizacionDolar;
-            r.setPrecio(setPrecioPesosIvaIncluido);
-        }
-        return listaConvertidaAPesos;
-    }
 
     public List<Repuesto> buscarTodos() {
         return repuestoRepository.findAllOrderByFav();
@@ -48,11 +31,7 @@ public class RepuestoService {
     }
 
     public Repuesto addFavorito(Repuesto repuesto) {
-        if (!repuesto.getDestacado()) {
-            repuesto.setDestacado(true);
-        } else {
-            repuesto.setDestacado(false);
-        }
+        repuesto.setDestacado(!repuesto.getDestacado());
 
         return repuestoRepository.save(repuesto);
     }
