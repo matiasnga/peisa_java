@@ -19,8 +19,7 @@ public class abmRepuestoController {
 
     @Autowired
     RepuestoService repuestoService;
-    @Autowired
-    MoService moService;
+
 
     @RequestMapping("/repuesto/new")
     public String mostrarFormularioAltaRepuesto(Model model) {
