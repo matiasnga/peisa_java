@@ -1,10 +1,10 @@
 package com.circles.peisa.controller;
 
 import com.circles.peisa.domain.CotizacionDolar;
-import com.circles.peisa.domain.Mo;
+import com.circles.peisa.domain.ManoDeObra;
 import com.circles.peisa.domain.Orden;
 import com.circles.peisa.service.CotizacionDolarService;
-import com.circles.peisa.service.MoService;
+import com.circles.peisa.service.ManoDeObraService;
 
 import com.circles.peisa.service.OrdenService;
 import com.circles.peisa.service.RepuestoService;
@@ -23,7 +23,7 @@ public class listadoController {
     @Autowired
     RepuestoService repuestoService;
     @Autowired
-    MoService moService;
+    ManoDeObraService moService;
     @Autowired
     OrdenService ordenService;
     @Autowired
@@ -55,7 +55,7 @@ public class listadoController {
 
     @RequestMapping("/listaDePrecios")
     public String listadoListaDePrecios(Model model) {
-        List<Mo> listarMo = moService.buscarTodos();
+        List<ManoDeObra> listarMo = moService.buscarTodos();
         model.addAttribute("mo", listarMo);
 
         List listaRepuestosAPesos = cotizacionDolarService.convertirAPesos(repuestoService.buscarTodos());

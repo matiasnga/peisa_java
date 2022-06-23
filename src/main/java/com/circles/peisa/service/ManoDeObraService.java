@@ -1,17 +1,17 @@
 package com.circles.peisa.service;
 
-import com.circles.peisa.domain.Mo;
-import com.circles.peisa.repository.MoRepository;
+import com.circles.peisa.domain.ManoDeObra;
+import com.circles.peisa.repository.ManoDeObraRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class MoService {
+public class ManoDeObraService {
     @Autowired
-    MoRepository moRepository;
+    ManoDeObraRepository moRepository;
     
-    public List<Mo> buscarTodos(){
+    public List<ManoDeObra> buscarTodos(){
     return moRepository.findAll();
     
     }

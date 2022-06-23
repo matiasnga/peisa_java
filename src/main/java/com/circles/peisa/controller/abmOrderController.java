@@ -1,7 +1,7 @@
 package com.circles.peisa.controller;
 
 import com.circles.peisa.domain.MedioDePago;
-import com.circles.peisa.domain.Mo;
+import com.circles.peisa.domain.ManoDeObra;
 import com.circles.peisa.domain.Orden;
 import com.circles.peisa.domain.Repuesto;
 import com.circles.peisa.service.*;
@@ -21,7 +21,7 @@ public class abmOrderController {
     @Autowired
     OrdenService ordenService;
     @Autowired
-    MoService moService;
+    ManoDeObraService moService;
     @Autowired
     RepuestoService repuestoService;
     @Autowired
@@ -32,7 +32,7 @@ public class abmOrderController {
     @RequestMapping("/order/new")
     public String crearNuevaOrden(Model model) {
 
-        List<Mo> mo = moService.buscarTodos();
+        List<ManoDeObra> mo = moService.buscarTodos();
         model.addAttribute("mo", mo);
 
         List listaRepuestosAPesos = cotizacionDolarService.convertirAPesos(repuestoService.buscarTodos());
@@ -57,7 +57,7 @@ public class abmOrderController {
 
     @PostMapping("/order/update/{id}")
     public String updateOrden(@PathVariable("id") int id, Orden orden) {
-        Mo getMo = orden.getMo();
+        ManoDeObra getMo = orden.getMo();
         if (orden.getRepuestos() != "") {
             int idBuscar = Integer.parseInt(orden.getRepuestos());
             Repuesto repuesto = repuestoService.buscarRepuestoPorId(idBuscar);
@@ -77,7 +77,7 @@ public class abmOrderController {
 
     @RequestMapping("/order/save")
     public String guardarOrden(Orden orden) {
-        Mo getMo = orden.getMo();
+        ManoDeObra getMo = orden.getMo();
         if (orden.getRepuestos() != "") {
             int idBuscar = Integer.parseInt(orden.getRepuestos());
             Repuesto repuesto = repuestoService.buscarRepuestoPorId(idBuscar);
